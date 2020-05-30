@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>Rubik</title>
+        <link href="css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href=".">Rubik</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="active">
+                                <a href=".">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Essentials <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="essentials/core-concepts/">Project Structure</a>
+</li>
+                                    
+<li >
+    <a href="essentials/apis/">APIs</a>
+</li>
+                                    
+<li >
+    <a href="essentials/tooling/">Tooling</a>
+</li>
+                                    
+<li >
+    <a href="essentials/configuration/">Configuration</a>
+</li>
+                                    
+<li >
+    <a href="essentials/blocks/">Blocks</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="about/introduction/">Why Rubik?</a>
+</li>
+                                    
+<li >
+    <a href="about/community/">Community</a>
+</li>
+                                    
+<li >
+    <a href="about/contributing/">Contributing</a>
+</li>
+                                    
+<li >
+    <a href="about/release-notes/">Releases</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="disabled">
+                                <a rel="next" >
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="essentials/core-concepts/">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/rubikorg/rubik"><i class="fa fa-github"></i> GitHub</a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#installation">Installation</a></li>
+        <li class="main "><a href="#getting-started">Getting Started</a></li>
+            <li><a href="#create-project">Create Project</a></li>
+            <li><a href="#running-project">Running Project</a></li>
+        <li class="main "><a href="#framework-documentation">Framework Documentation</a></li>
+        <li class="main "><a href="#block-list">Block List</a></li>
+        <li class="main "><a href="#disclaimer">Disclaimer!</a></li>
+        <li class="main "><a href="#however">However...</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<p><img id="banner" style="background: transparent; border-width: 0px;" src="/img/gopher_banner_rubik.png"></p>
+<p>Rubik is a efficient, scalable micro-framework for writing REST client and server-side applications. It provides a pluggable
+layer of abstraction over <code>net/http</code> and enables automation of development environment through extensive tooling.</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link"></a></h2>
+<p>Rubik comes with it's own generator CLI called <code>okrubik</code>. Copy and paste the below command to install
+the CLI tool.</p>
+<p><span style="font-weight: bold">Shell</span>: <em>(Alpha)</em></p>
+<pre><code class="bash">curl https://rubik.ashishshekar.com/install | sh
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>okrubik is not supported for Windows yet. Although you can download and build the CLI for your 
+platform from <a href="https://github.com/rubikorg/okrubik">this</a> repository. It is not tested with this
+release.</p>
+</div>
+<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link"></a></h2>
+<p><br /></p>
+<h3 id="create-project">Create Project<a class="headerlink" href="#create-project" title="Permanent link"></a></h3>
+<p>After your project is installed to the path you can easily create a Rubik project by running the
+<code>create</code> command:</p>
+<pre><code class="bash">okrubik create
+</code></pre>
+
+<p>You'll be presented with some questions before setting up your Rubik server. After you answer them
+a directory will be created with your project name.</p>
+<h3 id="running-project">Running Project<a class="headerlink" href="#running-project" title="Permanent link"></a></h3>
+<p>You can run the project by using the <code>run</code> command:</p>
+<pre><code class="bash">okrubik run
+</code></pre>
+
+<p>You will see a chooser to run which of the projects in your Rubik workspace. After you choose
+<em>server</em> you can see your Rubik server running at <em>PORT</em> you had entered. You'll see a page like so:</p>
+<p><img width="500" src="/img/new_project.png" /></p>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Congratulations on your Rubik project setup! You will have all the resources at your disposal
+for quickly writing REST APIs in that page. Let's move on to the <a href="/essentials/core-concepts">Project Structure</a> chapter.</p>
+</div>
+<h2 id="framework-documentation">Framework Documentation<a class="headerlink" href="#framework-documentation" title="Permanent link"></a></h2>
+<p>The framework is new and needs many documentation that needs to be added. The current documentation of Rubik framework can be found <a href="">here</a>.</p>
+<h2 id="block-list">Block List<a class="headerlink" href="#block-list" title="Permanent link"></a></h2>
+<p>Take a look at some blocks that the <a href="https://github.com/codekidX">@author</a> has made until we get some more contributions:</p>
+<ul>
+<li><a href="/blocks/httplogger">Simple HTTPLogger Block</a> - A Rubik block for logging request path and response times.</li>
+<li><a href="/blocks/swagger">Rubik Swagger Block</a> - A customised swagger implementation that automatically generates Swagger docs of your Rubik routes.</li>
+<li><a href="/blocks/cors">CORS Block</a> - An implementation of configurable CORS Headers middleware</li>
+<li><a href="/blocks/healthcheck">HealthCheck Block</a> - Readily appends a route for health check services like 
+kubernetes etc..</li>
+</ul>
+<h2 id="disclaimer">Disclaimer!<a class="headerlink" href="#disclaimer" title="Permanent link"></a></h2>
+<p>This project is still in <code>alpha</code> stage. Meaning, that it should not be used for writing complex and 
+information sensitive servers -- "yet". As this project is made support the needs of an upcoming product
+that is due to be launched this year, it'll receive huge updates and in-time it will become 
+<a href="">rock solid!</a></p>
+<h2 id="however">However...<a class="headerlink" href="#however" title="Permanent link"></a></h2>
+<p>This alpha release of Rubik can be used for quick prototying and proof-of-concept servers for your
+ideas.</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2020-05-30 07:58:09
+-->
