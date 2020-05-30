@@ -72,7 +72,7 @@ p {
 }
 
 body {
-  font-family: 'Jost', sans-serif;
+  font-family: 'Spectral', serif;
 }
 /* Replacement for `body { background-attachment: fixed; }`, which has
    performance issues when scrolling on large displays. See #1394. */
@@ -121,7 +121,7 @@ h1 {
   color: #444;
   font-weight: 400;
   font-size: 36px;
-  font-family: 'Jost', sans-serif;
+  font-family: 'Mulu', sans-serif;
 }
 
 h2,
@@ -130,12 +130,12 @@ h4,
 h5 {
   color: #444;
   font-weight: 300;
-  font-family: 'Jost', sans-serif;
+  font-family: 'Muli', sans-serif;
 }
 
 h6 {
   color: #ab256f;
-  font-family: 'Jost', sans-serif;
+  font-family: 'Muli', sans-serif;
 }
 
 hr {
