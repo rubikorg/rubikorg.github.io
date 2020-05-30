@@ -57,6 +57,14 @@ a:hover {
   border: none;
 }
 
+#icon-left {
+  width: 200px;
+  float: left;
+  padding: 2em;
+  background-color: transparent !important;
+  border: none;
+}
+
 p {
   font-size: 18px;
   font-weight: 300;
