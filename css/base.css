@@ -121,7 +121,7 @@ h1 {
   color: #444;
   font-weight: 400;
   font-size: 36px;
-  font-family: 'Mulu', sans-serif;
+  font-family: 'Carter One', sans-serif;
 }
 
 h2,
@@ -130,12 +130,12 @@ h4,
 h5 {
   color: #444;
   font-weight: 300;
-  font-family: 'Muli', sans-serif;
+  font-family: 'Carter One', sans-serif;
 }
 
 h6 {
   color: #ab256f;
-  font-family: 'Muli', sans-serif;
+  font-family: 'Carter One', sans-serif;
 }
 
 hr {
@@ -228,7 +228,7 @@ footer {
 .navbar {
   background-image: none !important;
   background-color: white !important;
-  box-shadow: #eee 5px 2px 5px 2px;
+  /* box-shadow: #eee 5px 2px 5px 2px; */
   background-repeat: no-repeat;
 }
 
