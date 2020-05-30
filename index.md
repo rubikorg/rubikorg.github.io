@@ -1,6 +1,7 @@
 ---
 redirect_from:
   - /
+  - /index.html
 ---
 
 ## Welcome to GitHub Pages
