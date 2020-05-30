@@ -1,0 +1,51 @@
+site_name: Rubik
+main_title: Introduction | Rubik
+
+
+repo_url: https://github.com/rubikorg/rubik
+yt_url: https://www.youtube.com/channel/UC_qelGu_taTq8NSROkAPE9g
+edit_uri: ""
+
+nav:
+    - Home: index.md
+    - Guide: getting-started.md
+    - APIs:
+        - Core: essentials/apis.md
+        - Blocks: essentials/blocks.md
+    - Contribute on GitHub: about/contributing.md
+    # - Essentials:
+    #     - Tooling: essentials/tooling.md 
+    #     - Configuration: essentials/configuration.md
+        # - Architecture: essentials/configuration.md
+        # - Testing: essentials/testing-your-sketch.md
+    # - About:
+    #     - Why Rubik?: about/introduction.md
+    #     - Community: about/community.md
+    #     - Releases: about/release-notes.md
+    
+theme:  
+    name: null
+    custom_dir: './theme/mkdocs-rubik'
+    include_search_page: false
+    search_index_only: false
+
+    highlightjs: true
+    hljs_languages:
+        - bash
+        - js
+        - go
+    hljs_style: arduino-light
+
+    navigation_depth: 2
+    nav_style: primary
+
+    shortcuts:
+        search: 83
+        help: 191    # ?
+        next: 78     # n
+        previous: 80 # p
+
+markdown_extensions:
+    - admonition
+    - toc:
+        permalink: 
