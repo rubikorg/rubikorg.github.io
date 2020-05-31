@@ -29,7 +29,7 @@
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a href="../.."><span style="font-weight: bold; font-size: 18px;padding-right: 1.5em;">Rubik</span></a>
+                <a href="../.."><span style="font-weight: bold; font-size: 18px;">Rubik</span></a><span style="padding-right: 1.5em;padding-left: 0.2em;">[alpha]</span>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
                     <span class="navbar-toggler-icon">
@@ -120,7 +120,7 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="1"><a href="#best-practises" class="nav-link">Best Practises</a>
+            <li class="nav-item" data-level="1"><a href="#best-practices" class="nav-link">Best Practices</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -235,7 +235,7 @@ func init() {
 </code></pre>
 
 <p><code>rubik.Attach</code> takes in a <code>(name string, block rubik.Block)</code> as it's parameters.</p>
-<h2 id="best-practises">Best Practises<a class="headerlink" href="#best-practises" title="Permanent link"></a></h2>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link"></a></h2>
 <p>Notice how we had initialized the block? By passing a raw string -- this can prove dangerous while
 developers using this block try to Get your Block for usage.</p>
 <ul>
