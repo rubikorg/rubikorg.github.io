@@ -13,7 +13,7 @@ provide many pluggable blocks.
 
 ### Goals
 
-= Keep a small footprint, this is a micro-framework and will always be one.
+= Keep a small footprint
 
 = Provide Block _(extenstion)_ APIs that can basically support any integration
 

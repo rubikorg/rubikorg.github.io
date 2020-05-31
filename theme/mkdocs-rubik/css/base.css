@@ -28,11 +28,13 @@ a:hover {
 }
 
 .dropdown-menu .dropdown-item:hover {
-  background-color: rgba(171, 37, 111, 0.87);
+  background-color: white !important;
+  color: #ab256f;
 }
 
 .dropdown-menu .dropdown-item.active {
-  background-color: #ab256f;
+  background-color: white !important;
+  color: #ab256f;
 }
 
 #gopher-contrib {
@@ -83,8 +85,8 @@ body::before {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: #f8f8f8;
-  background: url(../img/grid.png) repeat-x;
+  background-color: #fff;
+  /* background: url(../img/grid.png) repeat-x; */
   will-change: transform;
   z-index: -1;
 }
@@ -436,6 +438,14 @@ h6:hover .headerlink {
   text-align: left;
 }
 
+
+@media (max-width: 1800px) {
+  #quick-demo {
+    width: 700px;
+    height: 394px;
+  }
+}
+
 @media (max-width: 991.98px) {
   .navbar-collapse.show {
     /* csslint allow: adjoining-classes */
@@ -454,12 +464,22 @@ h6:hover .headerlink {
     width: 400px;
     height: 225px;
   }
+
+  #quick-demo {
+    width: 400px;
+    height: 225px;
+  }
 }
 
 @media (max-width: 580px) {
   #banner {
     width: 400px;
     height: 215px;
+  }
+
+  #quick-demo {
+    width: 300px;
+    height: 169px;
   }
 }
 

@@ -3,8 +3,7 @@
 Take a look at some blocks that the [@author](https://github.com/codekidX) has made until we get some more contributions:
 
 - [Simple HTTPLogger Block](/blocks/httplogger) - A Rubik block for logging request path and response times.
-- [Rubik Swagger Block](/blocks/swagger) - A customised swagger implementation that automatically generates Swagger docs of your Rubik routes.
-<!-- - [CORS Block](/blocks/cors) - An implementation of configurable CORS Headers middleware -->
+<!-- - [Rubik Swagger Block](/blocks/swagger) - A customised swagger implementation that automatically generates Swagger docs of your Rubik routes. -->
 - [HealthCheck Block](/blocks/healthcheck) - Readily appends a route for health check services like 
 kubernetes etc..
 
@@ -87,7 +86,7 @@ func init() {
 
 `rubik.Attach` takes in a `(name string, block rubik.Block)` as it's parameters.
 
-## Best Practises
+## Best Practices
 
 Notice how we had initialized the block? By passing a raw string -- this can prove dangerous while
 developers using this block try to Get your Block for usage.
@@ -112,18 +111,16 @@ A very good example of this type of implementation is the [CORS](/blocks/cors) b
 
 ```go
 import (
-    "github.com/rubikorg/blocks/cors"
+    "github.com/rubikorg/blocks/yourBlock"
     r "github.com/rubikorg/rubik"
 )
 
 // notice how BlockName came in handy?
-var corsMW = r.GetBlock(cors.BlockName).(cors.BlockCors).MW
+var yourBlock = r.GetBlock(yourBlock.BlockName)
 ```
 
 `r.GetBlock()` gets the Block by name, rubik knows that it's a Block _(as it satisfies the Block
-interface)_ but compiler just doesn't know which one _(yet ..generics please rant!!)_ .. So we
-coerce it to the type block that is attached `(cors.BlockCors)` which has the `MW` middleware 
-method.
+interface)_ but compiler just doesn't know which one _(yet ..generics please rant!!)_ ..
 
 !!! Note
 	There is no possible way that `r.GetBlock` returns any other Block because of the map and 
@@ -152,7 +149,7 @@ func (sb *App) Config(name string) interface{} {}
 ### CurrentURL
 `type: String`
 
-It is the local host prepended current URL of your Rubik server.
+It is the localhost prepended current URL of your Rubik server.
 ```go
 app.CurrentURL
 ```
