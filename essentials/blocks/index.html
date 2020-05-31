@@ -29,7 +29,7 @@
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="../.."><img width="30px" src="../../img/icon.png" /></a>
+                <a href="../.."><span style="font-weight: bold; font-size: 18px;padding-right: 1.5em;">Rubik</span></a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
                     <span class="navbar-toggler-icon">
@@ -45,23 +45,11 @@
                                 <a href="../.." class="nav-link">Home</a>
                             </li>
                             <li class="dropdown active">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Essentials <b class="caret"></b></a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">APIs <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../core-concepts/" class="dropdown-item">Project Structure</a>
-</li>
-                                    
-<li>
-    <a href="../apis/" class="dropdown-item">APIs</a>
-</li>
-                                    
-<li>
-    <a href="../tooling/" class="dropdown-item">Tooling</a>
-</li>
-                                    
-<li>
-    <a href="../configuration/" class="dropdown-item">Configuration</a>
+    <a href="../apis/" class="dropdown-item">Core</a>
 </li>
                                     
 <li>
@@ -69,26 +57,8 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../about/introduction/" class="dropdown-item">Why Rubik?</a>
-</li>
-                                    
-<li>
-    <a href="../../about/community/" class="dropdown-item">Community</a>
-</li>
-                                    
-<li>
-    <a href="../../about/contributing/" class="dropdown-item">Contributing</a>
-</li>
-                                    
-<li>
-    <a href="../../about/release-notes/" class="dropdown-item">Releases</a>
-</li>
-                                </ul>
+                            <li class="navitem">
+                                <a href="../../about/contributing/" class="nav-link">Contribute on GitHub</a>
                             </li>
                         </ul>
 
@@ -99,12 +69,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../configuration/" class="nav-link">
+                                <a rel="prev" href="../apis/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../../about/introduction/" class="nav-link">
+                                <a rel="next" href="../../about/contributing/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -134,6 +104,11 @@
     
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="0"><a href="#list-of-available-blocks" class="nav-link">List of Available Blocks</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
             
             <li class="nav-item" data-level="0"><a href="#about-blocks" class="nav-link">About Blocks</a>
               <ul class="nav flex-column">
@@ -181,6 +156,14 @@
                     <div class="col-md-9" role="main">
                         
 
+<h1 id="list-of-available-blocks">List of Available Blocks<a class="headerlink" href="#list-of-available-blocks" title="Permanent link"></a></h1>
+<p>Take a look at some blocks that the <a href="https://github.com/codekidX">@author</a> has made until we get some more contributions:</p>
+<ul>
+<li><a href="/blocks/httplogger">Simple HTTPLogger Block</a> - A Rubik block for logging request path and response times.
+<!-- - <a href="/blocks/swagger">Rubik Swagger Block</a> - A customised swagger implementation that automatically generates Swagger docs of your Rubik routes. --></li>
+<li><a href="/blocks/healthcheck">HealthCheck Block</a> - Readily appends a route for health check services like 
+kubernetes etc..</li>
+</ul>
 <h1 id="about-blocks">About Blocks<a class="headerlink" href="#about-blocks" title="Permanent link"></a></h1>
 <p>Components that are independant of the core system is called as a block. Blocks can never depend
 on a specific nature of the server yet provide extended functionality to your Rubik server.</p>
@@ -273,18 +256,16 @@ designed in such a way too -- so why let developers Attach it separately inside 
 Since Rubik is a singleton instance it maintaines a map of blocks by the name that you specify.</p>
 <p>A very good example of this type of implementation is the <a href="/blocks/cors">CORS</a> block:</p>
 <pre><code class="go">import (
-    &quot;github.com/rubikorg/blocks/cors&quot;
+    &quot;github.com/rubikorg/blocks/yourBlock&quot;
     r &quot;github.com/rubikorg/rubik&quot;
 )
 
 // notice how BlockName came in handy?
-var corsMW = r.GetBlock(cors.BlockName).(cors.BlockCors).MW
+var yourBlock = r.GetBlock(yourBlock.BlockName)
 </code></pre>
 
 <p><code>r.GetBlock()</code> gets the Block by name, rubik knows that it's a Block <em>(as it satisfies the Block
-interface)</em> but compiler just doesn't know which one <em>(yet ..generics please rant!!)</em> .. So we
-coerce it to the type block that is attached <code>(cors.BlockCors)</code> which has the <code>MW</code> middleware 
-method.</p>
+interface)</em> but compiler just doesn't know which one <em>(yet ..generics please rant!!)</em> ..</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>There is no possible way that <code>r.GetBlock</code> returns any other Block because of the map and 
@@ -308,7 +289,7 @@ your block to work.</p>
 
 <h3 id="currenturl">CurrentURL<a class="headerlink" href="#currenturl" title="Permanent link"></a></h3>
 <p><code>type: String</code></p>
-<p>It is the local host prepended current URL of your Rubik server.</p>
+<p>It is the localhost prepended current URL of your Rubik server.</p>
 <pre><code class="go">app.CurrentURL
 </code></pre>
 

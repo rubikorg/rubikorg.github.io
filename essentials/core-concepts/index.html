@@ -29,7 +29,7 @@
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="../.."><img width="30px" src="../../img/icon.png" /></a>
+                <a href="../.."><span style="font-weight: bold; font-size: 18px;padding-right: 1.5em;">Rubik</span></a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
                     <span class="navbar-toggler-icon">
@@ -44,24 +44,12 @@
                             <li class="navitem">
                                 <a href="../.." class="nav-link">Home</a>
                             </li>
-                            <li class="dropdown active">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Essentials <b class="caret"></b></a>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">APIs <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="./" class="dropdown-item active">Project Structure</a>
-</li>
-                                    
-<li>
-    <a href="../apis/" class="dropdown-item">APIs</a>
-</li>
-                                    
-<li>
-    <a href="../tooling/" class="dropdown-item">Tooling</a>
-</li>
-                                    
-<li>
-    <a href="../configuration/" class="dropdown-item">Configuration</a>
+    <a href="../apis/" class="dropdown-item">Core</a>
 </li>
                                     
 <li>
@@ -69,26 +57,8 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="../../about/introduction/" class="dropdown-item">Why Rubik?</a>
-</li>
-                                    
-<li>
-    <a href="../../about/community/" class="dropdown-item">Community</a>
-</li>
-                                    
-<li>
-    <a href="../../about/contributing/" class="dropdown-item">Contributing</a>
-</li>
-                                    
-<li>
-    <a href="../../about/release-notes/" class="dropdown-item">Releases</a>
-</li>
-                                </ul>
+                            <li class="navitem">
+                                <a href="../../about/contributing/" class="nav-link">Contribute on GitHub</a>
                             </li>
                         </ul>
 
@@ -98,16 +68,6 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
-                            <li class="nav-item">
-                                <a rel="prev" href="../.." class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../apis/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
                             <li class="nav-item">
                                 <a href="https://github.com/rubikorg/rubik" target="_blank" class="nav-link"><i class="fa fa-github"></i> 
                                         <!-- GitHub --></a>
@@ -137,34 +97,6 @@
             
             <li class="nav-item" data-level="0"><a href="#project-structure" class="nav-link">Project Structure</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="1"><a href="#main-file" class="nav-link">Main File</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="1"><a href="#config-folder" class="nav-link">Config Folder</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="1"><a href="#routers-folder" class="nav-link">Routers Folder</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="1"><a href="#static-folder" class="nav-link">Static Folder</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="1"><a href="#templates-folder" class="nav-link">Templates Folder</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="1"><a href="#storage-folder" class="nav-link">Storage Folder</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="1"><a href="#rubik-lifecycle" class="nav-link">Rubik Lifecycle</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
               </ul>
             </li>
         </ul>
@@ -174,122 +106,20 @@
                         
 
 <h1 id="project-structure">Project Structure<a class="headerlink" href="#project-structure" title="Permanent link"></a></h1>
-<h3 id="main-file">Main File<a class="headerlink" href="#main-file" title="Permanent link"></a></h3>
-<p>After generating your Rubik workspace, you can view <code>cmd/server/main.go</code>  file which is the heart
-of Rubik server.</p>
-<pre><code class="go">package main
-
-import (
-    cfg &quot;myproject/cmd/server/config&quot;
-    &quot;myproject/cmd/server/routers&quot;
-    &quot;github.com/rubikorg/rubik&quot;
-)
-
-func main() {
-    var config cfg.ProjectConfig
-    err := rubik.Load(&amp;config)
-    if err != nil {
-        panic(err)
-    }
-
-    routers.Import()
-    panic(rubik.Run())
-}
-</code></pre>
-
-<p>Let's break down the lines of this <code>main()</code> func. The <code>rubik.Load()</code> func initializes configuration of your
-server and feeds it to Rubik runtime, you'll learn more about it in this <a href="">Configuration</a> chapter.</p>
-<p><code>routers.Import()</code> imports all your <a href="">rubik.Router</a> which is inside routers directory. 
-<code>rubik.Run()</code> runs your server, if we dive a little deeper it somewhat works like an OS booting all your
-routes and their Handler Funcs.</p>
-<h3 id="config-folder">Config Folder<a class="headerlink" href="#config-folder" title="Permanent link"></a></h3>
-<p>Config folder holds your Rubik config. Unlike any other Web frameworks Rubik implements it's own
-configuration consumer, making it easier to focus only on your route implementations. It is a seamless
-integration and uses <a href="">TOML</a> as it's default configuration language. More information can be found in the <a href="">Configuration</a> chapter.</p>
-<h3 id="routers-folder">Routers Folder<a class="headerlink" href="#routers-folder" title="Permanent link"></a></h3>
-<p>Routers folder holds a group of routes that can be tied together in the form of rubik.Router.
-Routers can hold multiple routes and rubik holds all routers which are added inside <code>routers/import.go</code>. The <code>Import()</code> that we saw in the <a href="/essentials/core-concepts/#main-file">above</a> section is responsible for serving all your routes to Rubik. You can think of each folder inside routers as a separate domains to decouple your logic separately.</p>
-<p>Example: <code>players</code>, <code>users</code>, <code>teams</code> can each be separate routers.</p>
-<p>:: route.go</p>
-<pre><code class="go">package teams
-
-import (
-    r &quot;github.com/rubikorg/rubik&quot;
-)
-
-// Router is index's router
-var Router = r.Create(&quot;/teams&quot;)
-
-var playersRoute = r.Route{
-    Path:  &quot;/players&quot;,
-    Controller: playersCtl,
-}
-
-func init() {
-    Router.Add(playersRoute)
-}
-</code></pre>
-
-<ul>
-<li>A new Router is initialized by using <code>r.Create()</code> func.</li>
-<li><code>r.Route{}</code> defines a new rubik Route. This route takes in <code>Path</code> which is appended to Router's path,
-in our case you will be able to access this route at <code>/teams/players</code>. <code>Controller</code> holds your main
-business logic and is abstracted inside <code>controller.go</code> file.</li>
-<li>Our <code>playersRoute</code> is then added to the rubik Router by calling <code>Router.Add()</code> func.</li>
-</ul>
-<p>:: controller.go</p>
-<pre><code class="go">package teams
-
-import (
-    r &quot;github.com/rubikorg/rubik&quot;
-)
-
-func playersRoute(en interface{}) r.ByteResponse {
-    return r.Success(&quot;Yo&quot;, r.Type.Text)
-}
-</code></pre>
-
-<ul>
-<li>There is nothing going on here except the <code>r.Success()</code> func. It accepts an interface, and encoding type. There is also <code>r.Failure()</code> method to denote API failures.</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You dont need to write any of this router code as okrubik generates them for you. Take a look
-at <a href="">Tooling::gen::router</a> section.</p>
-</div>
-<h3 id="static-folder">Static Folder<a class="headerlink" href="#static-folder" title="Permanent link"></a></h3>
-<p>If static folder is present inside your root of the binary folder Rubik boots another route <code>/static</code>
-which serves the whole static folder</p>
-<h3 id="templates-folder">Templates Folder<a class="headerlink" href="#templates-folder" title="Permanent link"></a></h3>
-<p>Anything inside the <code>templates</code> folder is accessible to the <code>rubik.Render()</code> func. Simply calling the
-below code:</p>
-<pre><code class="go">import r &quot;github.com/rubikorg/rubik&quot;
-
-func myCtl(en interface{}) r.ByteResponse {
-    return r.Render(r.Type.HTML, nil, &quot;index.html&quot;)
-}
-</code></pre>
-
-<p>will render <code>templates/index.html</code> as HTML response for your route.</p>
-<h3 id="storage-folder">Storage Folder<a class="headerlink" href="#storage-folder" title="Permanent link"></a></h3>
-<p>The storage folders can be viewed as containers for storing your files. The <a href="">Storage</a> APIs provides
-easy to use utility functions for storing, removing and fetching files from Storages.</p>
-<pre><code class="go">import r &quot;github.com/rubikorg/rubik&quot;
-
-func myCtl(en interface{}) r.ByteResponse {
-    paymentStore := r.Storage.Access(&quot;payment&quot;)
-    contentBytes := paymentStore.Get(&quot;myfile.txt&quot;)
-    if contentBytes != nil {
-        return r.Success(contentBytes, r.Type.Text)
-    }
-
-    return r.Failure(404, r.E(&quot;File not found&quot;))
-}
-</code></pre>
-
-<h3 id="rubik-lifecycle">Rubik Lifecycle<a class="headerlink" href="#rubik-lifecycle" title="Permanent link"></a></h3>
-<p>The lifecycle of rubik is pretty straight-forward and tries to be as descriptive as possible, let's take a look at the visual image below to understand more about it.</p>
-<p><img alt="rubik-lifecycle" src="/img/cherry_flow.png" /></p>
+<table>
+<thead>
+<tr>
+<th>File/Folder</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>main.go</td>
+<td>The entrypoint of your Rubik server</td>
+</tr>
+</tbody>
+</table>
 
                         ---<br/>
                         Caught a mistake or want to contribute to the documentation? <a target="_blank" href="https://github.com/okrubik/okrubik.github.io">Edit on GitHub!</a>

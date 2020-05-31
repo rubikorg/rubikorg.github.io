@@ -29,7 +29,7 @@
     <body class="homepage">
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href="."><img width="30px" src="img/icon.png" /></a>
+                <a href="."><span style="font-weight: bold; font-size: 18px;padding-right: 1.5em;">Rubik</span></a>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
                     <span class="navbar-toggler-icon">
@@ -45,23 +45,11 @@
                                 <a href="." class="nav-link">Home</a>
                             </li>
                             <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Essentials <b class="caret"></b></a>
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">APIs <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="essentials/core-concepts/" class="dropdown-item">Project Structure</a>
-</li>
-                                    
-<li>
-    <a href="essentials/apis/" class="dropdown-item">APIs</a>
-</li>
-                                    
-<li>
-    <a href="essentials/tooling/" class="dropdown-item">Tooling</a>
-</li>
-                                    
-<li>
-    <a href="essentials/configuration/" class="dropdown-item">Configuration</a>
+    <a href="essentials/apis/" class="dropdown-item">Core</a>
 </li>
                                     
 <li>
@@ -69,26 +57,8 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    
-<li>
-    <a href="about/introduction/" class="dropdown-item">Why Rubik?</a>
-</li>
-                                    
-<li>
-    <a href="about/community/" class="dropdown-item">Community</a>
-</li>
-                                    
-<li>
-    <a href="about/contributing/" class="dropdown-item">Contributing</a>
-</li>
-                                    
-<li>
-    <a href="about/release-notes/" class="dropdown-item">Releases</a>
-</li>
-                                </ul>
+                            <li class="navitem">
+                                <a href="about/contributing/" class="nav-link">Contribute on GitHub</a>
                             </li>
                         </ul>
 
@@ -104,7 +74,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="essentials/core-concepts/" class="nav-link">
+                                <a rel="next" href="essentials/apis/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -137,11 +107,6 @@
             
             <li class="nav-item" data-level="0"><a href="#installation" class="nav-link">Installation</a>
               <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="0"><a href="#getting-started" class="nav-link">Getting Started</a>
-              <ul class="nav flex-column">
             <li class="nav-item" data-level="1"><a href="#create-project" class="nav-link">Create Project</a>
               <ul class="nav flex-column">
               </ul>
@@ -154,11 +119,6 @@
             </li>
             
             <li class="nav-item" data-level="0"><a href="#framework-documentation" class="nav-link">Framework Documentation</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="0"><a href="#block-list" class="nav-link">Block List</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -178,10 +138,30 @@
                     <div class="col-md-9" role="main">
                         
 
-<p><img id="icon-left" style="background: transparent; border-width: 0px;" src="/img/icon.png"></p>
-<p>Rubik is a efficient, scalable micro-framework for writing REST client and server-side applications. It provides a pluggable
-layer of abstraction over <code>net/http</code> and enables automation of development environment through extensive tooling.</p>
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link"></a></h2>
+<p align="center">
+<img style="background: transparent; border-width: 0px; width: 150px;" src="/img/icon.png">
+</p>
+
+<p align="center" style="padding-left:4em;padding-right:4em;text-align:justify;text-justify:inter-word;">
+Rubik is a efficient, scalable micro-framework for writing REST client and server-side applications. It provides a pluggable
+layer of abstraction over `net/http` and enables automation of development environment through extensive tooling.
+<br/>
+<br/>
+Rubik aims to deliver similar experience on projects of different scale and keep support of existing Go's `net/http` 
+interfaces for cross-compatibility.
+</p>
+
+<h2 align="center">Quickstart</h2>
+
+<p><br /></p>
+<p align="center">
+<iframe id="quick-demo" width="560" height="315" src="https://www.youtube.com/embed/bUx066QTwfE?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+</p>
+
+<p><br /><br />
+<hr/></p>
+<h1 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link"></a></h1>
 <p>Rubik comes with it's own generator CLI called <code>okrubik</code>. Copy and paste the below command to install
 the CLI tool.</p>
 <p><span style="font-weight: bold">Shell</span>: <em>(Alpha)</em></p>
@@ -194,8 +174,6 @@ the CLI tool.</p>
 platform from <a href="https://github.com/rubikorg/okrubik">this</a> repository. It is not tested with this
 release.</p>
 </div>
-<h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link"></a></h2>
-<p><br /></p>
 <h3 id="create-project">Create Project<a class="headerlink" href="#create-project" title="Permanent link"></a></h3>
 <p>After your project is installed to the path you can easily create a Rubik project by running the
 <code>create</code> command:</p>
@@ -215,25 +193,16 @@ a directory will be created with your project name.</p>
 <div class="admonition success">
 <p class="admonition-title">Success</p>
 <p>Congratulations on your Rubik project setup! You will have all the resources at your disposal
-for quickly writing REST APIs in that page. Let's move on to the <a href="/essentials/core-concepts">Project Structure</a> chapter.</p>
+for quickly writing REST APIs in that page.</p>
 </div>
-<h2 id="framework-documentation">Framework Documentation<a class="headerlink" href="#framework-documentation" title="Permanent link"></a></h2>
-<p>The framework is new and needs many documentation that needs to be added. The current documentation of Rubik framework can be found <a href="">here</a>.</p>
-<h2 id="block-list">Block List<a class="headerlink" href="#block-list" title="Permanent link"></a></h2>
-<p>Take a look at some blocks that the <a href="https://github.com/codekidX">@author</a> has made until we get some more contributions:</p>
-<ul>
-<li><a href="/blocks/httplogger">Simple HTTPLogger Block</a> - A Rubik block for logging request path and response times.</li>
-<li><a href="/blocks/swagger">Rubik Swagger Block</a> - A customised swagger implementation that automatically generates Swagger docs of your Rubik routes.</li>
-<li><a href="/blocks/cors">CORS Block</a> - An implementation of configurable CORS Headers middleware</li>
-<li><a href="/blocks/healthcheck">HealthCheck Block</a> - Readily appends a route for health check services like 
-kubernetes etc..</li>
-</ul>
-<h2 id="disclaimer">Disclaimer!<a class="headerlink" href="#disclaimer" title="Permanent link"></a></h2>
+<h1 id="framework-documentation">Framework Documentation<a class="headerlink" href="#framework-documentation" title="Permanent link"></a></h1>
+<p>The framework is new and needs many documentation that needs to be added. The current documentation of Rubik framework can be found <a href="https://pkg.go.dev/github.com/rubikorg/rubik?tab=doc">here</a>.</p>
+<h1 id="disclaimer">Disclaimer!<a class="headerlink" href="#disclaimer" title="Permanent link"></a></h1>
 <p>This project is still in <code>alpha</code> stage. Meaning, that it should not be used for writing complex and 
 information sensitive servers -- "yet". As this project is made support the needs of an upcoming product
 that is due to be launched this year, it'll receive huge updates and in-time it will become 
 <a href="">rock solid!</a></p>
-<h2 id="however">However...<a class="headerlink" href="#however" title="Permanent link"></a></h2>
+<h1 id="however">However...<a class="headerlink" href="#however" title="Permanent link"></a></h1>
 <p>This alpha release of Rubik can be used for quick prototying and proof-of-concept servers for your
 ideas.</p>
 
@@ -324,5 +293,5 @@ ideas.</p>
 
 <!--
 MkDocs version : 1.0.4
-Build Date UTC : 2020-05-30 10:55:09
+Build Date UTC : 2020-05-31 12:58:08
 -->
