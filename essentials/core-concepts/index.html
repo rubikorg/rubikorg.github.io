@@ -116,7 +116,39 @@
 <tbody>
 <tr>
 <td>main.go</td>
-<td>The entrypoint of your Rubik server</td>
+<td>The entrypoint of your Rubik server. This is where your config is loaded and server is started.</td>
+</tr>
+<tr>
+<td>config/</td>
+<td>The TOML configurations of your project is placed here. <code>decl.go</code> is the declaration of your config.</td>
+</tr>
+<tr>
+<td>routers/</td>
+<td>Routers hold group of routes. Routers are grouped by functionalities/domains in rubik.</td>
+</tr>
+<tr>
+<td>routers/*/route.go</td>
+<td>This file handles the creation of router and addition of routes under this domain.</td>
+</tr>
+<tr>
+<td>routers/*/controller.go</td>
+<td>Corresponding controllers of all routes under this domain can be located here.</td>
+</tr>
+<tr>
+<td>routers/import.go</td>
+<td>This file contains <code>Import</code> function which is the entripoint of all Routers into Rubik.</td>
+</tr>
+<tr>
+<td>static/</td>
+<td>This folder contains all the files that you want to serve statically under <code>/static</code> prefix path.</td>
+</tr>
+<tr>
+<td>templates/</td>
+<td>This folder holds files used for redering template as response.</td>
+</tr>
+<tr>
+<td>storage/</td>
+<td>This folder all files that can be organized and stored using the <code>Storage</code> API of Rubik.</td>
 </tr>
 </tbody>
 </table>
