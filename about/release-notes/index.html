@@ -2,14 +2,14 @@
 <html lang="en">
   <head>
     
-      <title>Release 0.2.0 :: Rubik | An efficient framework for Go — Welcome to Rubik Docs</title>
+      <title>Release Notes :: Rubik | An efficient framework for Go — Welcome to Rubik Docs</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="Changes to Rubik’s Controller signature — Everything is a controller - #32  var r := rubik.Route{ Path: “/”, Controller: indexCtl, } // === old method signature === // fund indexCtlOld(en interface{}) rubik.ByteResponse{ // return rubik.Success(&amp;quot;Hello World&amp;quot;) // } // === much cleaner and simple 0.2.0 method signature === func indexCtl(req *rubik.Request) { // rubik.Failure is now (req.Throw) req.Respond(“Hello World&amp;quot;) }   Now supports interop with Go&amp;rsquo;s stdlib &amp;ndash; Any Handler || HandlerFunc can be casted to Controller  var r := rubik."/>
+<meta name="description" content="v0.2.0  Changes to Rubik’s Controller signature — Everything is a controller - #32  var r := rubik.Route{ Path: “/”, Controller: indexCtl, } // === old method signature === // fund indexCtlOld(en interface{}) rubik.ByteResponse{ // return rubik.Success(&amp;quot;Hello World&amp;quot;) // } // === much cleaner and simple 0.2.0 method signature === func indexCtl(req *rubik.Request) { // rubik.Failure is now (req.Throw) req.Respond(“Hello World&amp;quot;) }   Now supports interop with Go&amp;rsquo;s stdlib &amp;ndash; Any Handler || HandlerFunc can be casted to Controller  var r := rubik."/>
 <meta name="keywords" content=""/>
 <meta name="robots" content="noodp"/>
-<link rel="canonical" href="/releases/v020/" />
+<link rel="canonical" href="/about/release-notes/" />
 
 
 <link rel="stylesheet" href="/assets/style.css">
@@ -26,15 +26,15 @@
 
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Release 0.2.0"/>
-<meta name="twitter:description" content="Changes to Rubik’s Controller signature — Everything is a controller - #32  var r := rubik.Route{ Path: “/”, Controller: indexCtl, } // === old method signature === // fund indexCtlOld(en interface{}) rubik.ByteResponse{ // return rubik.Success(&quot;Hello World&quot;) // } // === much cleaner and simple 0.2.0 method signature === func indexCtl(req *rubik.Request) { // rubik.Failure is now (req.Throw) req.Respond(“Hello World&quot;) }   Now supports interop with Go&rsquo;s stdlib &ndash; Any Handler || HandlerFunc can be casted to Controller  var r := rubik."/>
+<meta name="twitter:title" content="Release Notes"/>
+<meta name="twitter:description" content="v0.2.0  Changes to Rubik’s Controller signature — Everything is a controller - #32  var r := rubik.Route{ Path: “/”, Controller: indexCtl, } // === old method signature === // fund indexCtlOld(en interface{}) rubik.ByteResponse{ // return rubik.Success(&quot;Hello World&quot;) // } // === much cleaner and simple 0.2.0 method signature === func indexCtl(req *rubik.Request) { // rubik.Failure is now (req.Throw) req.Respond(“Hello World&quot;) }   Now supports interop with Go&rsquo;s stdlib &ndash; Any Handler || HandlerFunc can be casted to Controller  var r := rubik."/>
 
 
 
-<meta property="og:title" content="Release 0.2.0" />
-<meta property="og:description" content="Changes to Rubik’s Controller signature — Everything is a controller - #32  var r := rubik.Route{ Path: “/”, Controller: indexCtl, } // === old method signature === // fund indexCtlOld(en interface{}) rubik.ByteResponse{ // return rubik.Success(&quot;Hello World&quot;) // } // === much cleaner and simple 0.2.0 method signature === func indexCtl(req *rubik.Request) { // rubik.Failure is now (req.Throw) req.Respond(“Hello World&quot;) }   Now supports interop with Go&rsquo;s stdlib &ndash; Any Handler || HandlerFunc can be casted to Controller  var r := rubik." />
+<meta property="og:title" content="Release Notes" />
+<meta property="og:description" content="v0.2.0  Changes to Rubik’s Controller signature — Everything is a controller - #32  var r := rubik.Route{ Path: “/”, Controller: indexCtl, } // === old method signature === // fund indexCtlOld(en interface{}) rubik.ByteResponse{ // return rubik.Success(&quot;Hello World&quot;) // } // === much cleaner and simple 0.2.0 method signature === func indexCtl(req *rubik.Request) { // rubik.Failure is now (req.Throw) req.Respond(“Hello World&quot;) }   Now supports interop with Go&rsquo;s stdlib &ndash; Any Handler || HandlerFunc can be casted to Controller  var r := rubik." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/releases/v020/" />
+<meta property="og:url" content="/about/release-notes/" />
 <meta property="article:published_time" content="2020-06-02T00:00:00&#43;00:00"/>
 <meta property="article:modified_time" content="2020-06-02T00:00:00&#43;00:00"/><meta property="og:site_name" content="Rubik | An efficient framework for Go" />
 
@@ -111,7 +111,7 @@
       <div class="content">
         
   <div class="post">
-    <h2 class="post-title"><a href="/releases/v020/">Release 0.2.0</a></h2>
+    <h2 class="post-title"><a href="/about/release-notes/">Release Notes</a></h2>
     <div class="post-meta">
       
         <span class="post-date">
@@ -129,7 +129,11 @@
     
 
     <div class="post-content">
-      <ul>
+      
+
+<h2 id="v0-2-0">v0.2.0</h2>
+
+<ul>
 <li>Changes to Rubik’s Controller signature — Everything is a controller - <a href="https://github.com/rubikorg/rubik/pull/32">#32</a></li>
 </ul>
 

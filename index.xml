@@ -24,12 +24,12 @@ Testing your Go installation:</description>
     </item>
     
     <item>
-      <title>Release 0.2.0</title>
-      <link>/releases/v020/</link>
+      <title>Release Notes</title>
+      <link>/about/release-notes/</link>
       <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>/releases/v020/</guid>
-      <description>Changes to Rubik’s Controller signature — Everything is a controller - #32  var r := rubik.Route{ Path: “/”, Controller: indexCtl, } // === old method signature === // fund indexCtlOld(en interface{}) rubik.ByteResponse{ // return rubik.Success(&amp;quot;Hello World&amp;quot;) // } // === much cleaner and simple 0.2.0 method signature === func indexCtl(req *rubik.Request) { // rubik.Failure is now (req.Throw) req.Respond(“Hello World&amp;quot;) }   Now supports interop with Go&amp;rsquo;s stdlib &amp;ndash; Any Handler || HandlerFunc can be casted to Controller  var r := rubik.</description>
+      <guid>/about/release-notes/</guid>
+      <description>v0.2.0  Changes to Rubik’s Controller signature — Everything is a controller - #32  var r := rubik.Route{ Path: “/”, Controller: indexCtl, } // === old method signature === // fund indexCtlOld(en interface{}) rubik.ByteResponse{ // return rubik.Success(&amp;quot;Hello World&amp;quot;) // } // === much cleaner and simple 0.2.0 method signature === func indexCtl(req *rubik.Request) { // rubik.Failure is now (req.Throw) req.Respond(“Hello World&amp;quot;) }   Now supports interop with Go&amp;rsquo;s stdlib &amp;ndash; Any Handler || HandlerFunc can be casted to Controller  var r := rubik.</description>
     </item>
     
     <item>

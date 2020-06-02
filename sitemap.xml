@@ -8,7 +8,7 @@
   </url>
   
   <url>
-    <loc>/releases/v020/</loc>
+    <loc>/about/release-notes/</loc>
     <lastmod>2020-06-02T00:00:00+00:00</lastmod>
   </url>
   
@@ -48,6 +48,12 @@
   </url>
   
   <url>
+    <loc>/about/</loc>
+    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/archive/</loc>
   </url>
   
@@ -64,12 +70,6 @@
   
   <url>
     <loc>/guides/</loc>
-    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/releases/</loc>
     <lastmod>2020-06-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>

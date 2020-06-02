@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Abouts on Rubik | An efficient framework for Go</title>
+    <link>/about/</link>
+    <description>Recent content in Abouts on Rubik | An efficient framework for Go</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Ashish Shekar 2020</copyright>
+    <lastBuildDate>Tue, 02 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Release Notes</title>
+      <link>/about/release-notes/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/about/release-notes/</guid>
+      <description>v0.2.0  Changes to Rubik’s Controller signature — Everything is a controller - #32  var r := rubik.Route{ Path: “/”, Controller: indexCtl, } // === old method signature === // fund indexCtlOld(en interface{}) rubik.ByteResponse{ // return rubik.Success(&amp;quot;Hello World&amp;quot;) // } // === much cleaner and simple 0.2.0 method signature === func indexCtl(req *rubik.Request) { // rubik.Failure is now (req.Throw) req.Respond(“Hello World&amp;quot;) }   Now supports interop with Go&amp;rsquo;s stdlib &amp;ndash; Any Handler || HandlerFunc can be casted to Controller  var r := rubik.</description>
+    </item>
+    
+  </channel>
+</rss>
