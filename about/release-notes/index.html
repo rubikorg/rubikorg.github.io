@@ -10,7 +10,7 @@
         
         
         <link rel="shortcut icon" href="../../img/icon.png">
-        <title>Release Notes - Introduction | Rubik</title>
+        <title>Releases - Introduction | Rubik</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -57,8 +57,8 @@
 </li>
                                 </ul>
                             </li>
-                            <li class="navitem">
-                                <a href="../contributing/" class="nav-link">Contribute on GitHub</a>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Releases</a>
                             </li>
                         </ul>
 
@@ -68,6 +68,16 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../essentials/blocks/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a href="https://github.com/rubikorg/rubik" target="_blank" class="nav-link"><i class="fa fa-github"></i> 
                                         <!-- GitHub --></a>
@@ -97,20 +107,20 @@
             
             <li class="nav-item" data-level="0"><a href="#release-notes" class="nav-link">Release Notes</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="1"><a href="#v020" class="nav-link">v0.2.0</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#june-02-2020" class="nav-link">June 02 2020</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
             <li class="nav-item" data-level="1"><a href="#v01" class="nav-link">v0.1</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-level="2"><a href="#may-29-2020" class="nav-link">May 29 2020</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-              </ul>
-            </li>
-            <li class="nav-item" data-level="1"><a href="#v02-tbd" class="nav-link">v0.2 (TBD)</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="1"><a href="#v03-tbd" class="nav-link">v0.3 (TBD)</a>
-              <ul class="nav flex-column">
               </ul>
             </li>
             <li class="nav-item" data-level="1"><a href="#milestone-rubik-one" class="nav-link">Milestone: Rubik One</a>
@@ -127,6 +137,51 @@
 
 <h1 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link"></a></h1>
 <p><br /></p>
+<!-- ### v0.3.0 (TBD) -->
+
+<h3 id="v020">v0.2.0<a class="headerlink" href="#v020" title="Permanent link"></a></h3>
+<h6 id="june-02-2020">June 02 2020<a class="headerlink" href="#june-02-2020" title="Permanent link"></a></h6>
+<ul>
+<li>Changes to Rubik’s Controller signature — Everything is a controller - <a href="https://github.com/rubikorg/rubik/pull/32">#32</a></li>
+</ul>
+<pre><code class="go">var r := rubik.Route{
+    Path: “/”,
+    Controller: indexCtl,
+}
+
+// === old method signature ===
+// fund indexCtlOld(en interface{}) rubik.ByteResponse{
+//  return rubik.Success(&quot;Hello World&quot;)
+// }
+
+// === much cleaner and simple 0.2.0 method signature ===
+func indexCtl(req *rubik.Request) {
+    // rubik.Failure is now (req.Throw)
+    req.Respond(“Hello World&quot;)
+}
+</code></pre>
+
+<ul>
+<li>Now supports <strong>interop</strong> with Go's stdlib -- Any Handler || HandlerFunc can be casted to Controller</li>
+</ul>
+<pre><code class="go">var r := rubik.Route{
+    Path: “/”,
+    Controller: rubik.UseHandlerFunc(indexHandlerFunc), // OR UseHandler() for handlers
+}
+
+func indexHandlerFunc(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprint(&amp;w, “Hello world&quot;)
+}
+</code></pre>
+
+<ul>
+<li><code>okrubik gen router ${name}</code> this command now parses ast properly and adds the new router import and its 
+invocation </li>
+<li>There is a new method call <code>NewProbe()</code> which helps you with testing rubik.Router(s)</li>
+<li>CLI is now migrated to cobra instead of vanilla flag.Parse() for scalability reasons - 
+<a href="https://github.com/rubikorg/okrubik/pull/5">#5</a></li>
+<li>Improved API Documentation</li>
+</ul>
 <h3 id="v01">v0.1<a class="headerlink" href="#v01" title="Permanent link"></a></h3>
 <h6 id="may-29-2020">May 29 2020<a class="headerlink" href="#may-29-2020" title="Permanent link"></a></h6>
 <ul>
@@ -134,8 +189,6 @@
 <li>okrubik CLI</li>
 <li>rubik-client - alpha</li>
 </ul>
-<h3 id="v02-tbd">v0.2 (TBD)<a class="headerlink" href="#v02-tbd" title="Permanent link"></a></h3>
-<h3 id="v03-tbd">v0.3 (TBD)<a class="headerlink" href="#v03-tbd" title="Permanent link"></a></h3>
 <h3 id="milestone-rubik-one">Milestone: Rubik One<a class="headerlink" href="#milestone-rubik-one" title="Permanent link"></a></h3>
 
                         ---<br/>

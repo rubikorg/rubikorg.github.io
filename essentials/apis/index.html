@@ -58,7 +58,7 @@
                                 </ul>
                             </li>
                             <li class="navitem">
-                                <a href="../../about/contributing/" class="nav-link">Contribute on GitHub</a>
+                                <a href="../../about/release-notes/" class="nav-link">Releases</a>
                             </li>
                         </ul>
 
@@ -168,8 +168,8 @@
 <p>Render returns a mixin holding the data to be rendered on the web page or sent over the wire.</p>
 <pre><code class="go">import r &quot;github.com/rubikorg/rubik&quot;
 
-func myCtl(en interface{}) r.ByteResponse {
-    return r.Render(r.Type.HTML, en, &quot;mypage.html&quot;)
+func myCtl(req *r.Request) {
+    return r.Render(r.Type.HTML, req.Entity, &quot;mypage.html&quot;)
 }
 </code></pre>
 
