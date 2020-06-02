@@ -436,7 +436,7 @@ a.read-more:hover {
 .menu-trigger {
 	width: 24px;
 	height: 24px;
-	fill: currentColor;
+	fill: black;
 	margin-left: 10px;
 	cursor: pointer
 }
@@ -668,21 +668,20 @@ table {
 	margin: 40px 0;
 }
 
-table tr:last-child td:first-child {
-    border-bottom-left-radius: 10px;
+table thead tr th:last-child  {
+    border-top-right-radius: 10px;
 }
 
-table tr:last-child td:last-child {
-    border-bottom-right-radius: 10px;
+table thead tr th:first-child  {
+    border-top-left-radius: 10px;
 }
+
 
 table,
 td,
 th {
 	border: 0 solid #3b3d424b;
 	padding: 15px;
-	border-top-right-radius: 10px;
-	border-top-left-radius: 10px;
 }
 
 thead tr th {
