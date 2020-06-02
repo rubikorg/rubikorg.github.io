@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rubik | An efficient framework for Go</title>
+    <link>/</link>
+    <description>Recent content on Rubik | An efficient framework for Go</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Ashish Shekar 2020</copyright>
+    <lastBuildDate>Tue, 02 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Getting Started</title>
+      <link>/guides/getting-started/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/guides/getting-started/</guid>
+      <description>Before you can use Rubik you need to make sure that development environment is up-to-date and ensure that everything is setup correctly. Let&amp;rsquo;s go throught the requirements of Rubik first.
+Install Go Rubik Framework is written using Go programming language but you&amp;rsquo;ll need Go runtime to execute your Rubik server. The official Go installation guide provides you with a step by step instruction to install Go.
+Testing your Go installation:</description>
+    </item>
+    
+    <item>
+      <title>Release 0.2.0</title>
+      <link>/releases/v020/</link>
+      <pubDate>Tue, 02 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/releases/v020/</guid>
+      <description>Changes to Rubik’s Controller signature — Everything is a controller - #32  var r := rubik.Route{ Path: “/”, Controller: indexCtl, } // === old method signature === // fund indexCtlOld(en interface{}) rubik.ByteResponse{ // return rubik.Success(&amp;quot;Hello World&amp;quot;) // } // === much cleaner and simple 0.2.0 method signature === func indexCtl(req *rubik.Request) { // rubik.Failure is now (req.Throw) req.Respond(“Hello World&amp;quot;) }   Now supports interop with Go&amp;rsquo;s stdlib &amp;ndash; Any Handler || HandlerFunc can be casted to Controller  var r := rubik.</description>
+    </item>
+    
+    <item>
+      <title>Create a Rubik Project</title>
+      <link>/guides/create-project/</link>
+      <pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/guides/create-project/</guid>
+      <description>In this tutorial you&amp;rsquo;ll learn how to setup your Rubik project using the command-line generator and how easy it is to setup a productive environment with Rubik.
+In the previous tutorial we installed okrubik a CLI for this framework, to ensure that it is installed run:
+okrubik help # Rubik is an efficient web framework for Go that encapsulates # common tasks and functions and provides ease of REST API development.</description>
+    </item>
+    
+    <item>
+      <title>Write your first Rubik app</title>
+      <link>/guides/todo-example/</link>
+      <pubDate>Sun, 31 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/guides/todo-example/</guid>
+      <description>This tutorial is going to be a really exciting one because you&amp;rsquo;ll interact with Rubik and it&amp;rsquo;s ecosystem direactly.
+So in the last tutorial we created a project called helloworld and we ran it using the okrubik CLI. Using that project as a base we are not only going to create a TODO-App backend but we are also going to analyze the whole structure of this Rubik app so let&amp;rsquo;s fasten our seatbelts and Go.</description>
+    </item>
+    
+    <item>
+      <title>Sources of Rubik</title>
+      <link>/guides/navigating-docs/</link>
+      <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/guides/navigating-docs/</guid>
+      <description>This topic holds the culmunation of guides, docs, and videos about Rubik. Since Rubik is an young project yet to set foot on production you will always have a lack of resources and places to look for Projects.
+This will have a List of Resources to browse through:
+   Link Type Purpose URL     Video First Rubik Demo Link   Doc GoDoc of Rubik Link   Blog Command your Rubik Workspace Link    </description>
+    </item>
+    
+    <item>
+      <title>Joining the Team</title>
+      <link>/guides/join-us/</link>
+      <pubDate>Fri, 29 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/guides/join-us/</guid>
+      <description>Rubik was created from the inspiration of many frameworks like Django, Loopback, Flask etc. The idea here is to quickly get started with building web client-server apps in Go and have fun while building it.
+Identifying Problems If you come accross some issues and problems that is part of rubik and it is not working the way it should be, feel free to create an issue on our GitHub repository.</description>
+    </item>
+    
+    <item>
+      <title>Command your Rubik Workspace</title>
+      <link>/blog/rubik-commands/</link>
+      <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/rubik-commands/</guid>
+      <description> WIP ! </description>
+    </item>
+    
+    <item>
+      <title>Contributing to Rubik</title>
+      <link>/contribute/</link>
+      <pubDate>Fri, 25 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/contribute/</guid>
+      <description>Rubik was created from the inspiration of many frameworks like Django, Loopback, Flask etc. The idea here is to quickly get started with building web client-server apps in Go and have fun while building it.
+Identifying Problems If you come accross some issues and problems that is part of rubik and it is not working the way it should be, feel free to create an issue on our GitHub repository.</description>
+    </item>
+    
+    <item>
+      <title>Specifications</title>
+      <link>/specs/v1/</link>
+      <pubDate>Wed, 05 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/specs/v1/</guid>
+      <description>Introduction This part of the specification introduces you to (cloak) &amp;ndash; what it was &amp;ndash; what it is &amp;ndash; what it should be. Cloak daemon schedules tasks for applications and scripts and communicates back if you want it to. The goal is to make creation of cron tasks easy and quick and accessible.
+ Cloak was a personal project that I (author) used to use on my backend server to run some tasks which executed in an interval Now cloak is an API based task-runner runner which stores and runs task not only in a given interval but also at a specific date and time.</description>
+    </item>
+    
+    <item>
+      <title>Archive</title>
+      <link>/archive/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/archive/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

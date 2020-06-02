@@ -1,23 +1,94 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-06-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-06-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-06-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>None</loc>
-     <lastmod>2020-06-02</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/guides/getting-started/</loc>
+    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/releases/v020/</loc>
+    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/guides/create-project/</loc>
+    <lastmod>2020-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/guides/todo-example/</loc>
+    <lastmod>2020-05-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/guides/navigating-docs/</loc>
+    <lastmod>2020-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/guides/join-us/</loc>
+    <lastmod>2020-05-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/rubik-commands/</loc>
+    <lastmod>2020-05-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/contribute/</loc>
+    <lastmod>2019-01-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/specs/v1/</loc>
+    <lastmod>2018-12-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/archive/</loc>
+  </url>
+  
+  <url>
+    <loc>/blog/</loc>
+    <lastmod>2020-05-28T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/guides/</loc>
+    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/releases/</loc>
+    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2020-06-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/specs/</loc>
+    <lastmod>2018-12-05T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
 </urlset>

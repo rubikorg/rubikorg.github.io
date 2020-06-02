@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+      <title>Specifications :: Rubik | An efficient framework for Go — Welcome to Rubik Docs</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<meta name="description" content="Introduction This part of the specification introduces you to (cloak) &amp;ndash; what it was &amp;ndash; what it is &amp;ndash; what it should be. Cloak daemon schedules tasks for applications and scripts and communicates back if you want it to. The goal is to make creation of cron tasks easy and quick and accessible.
+ Cloak was a personal project that I (author) used to use on my backend server to run some tasks which executed in an interval Now cloak is an API based task-runner runner which stores and runs task not only in a given interval but also at a specific date and time."/>
+<meta name="keywords" content=""/>
+<meta name="robots" content="noodp"/>
+<link rel="canonical" href="/specs/v1/" />
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
+<link rel="shortcut icon" href="/img/favicon.png">
+
+
+<link href="https://fonts.googleapis.com/css?family=Spectral|Muli:900|Oxygen+Mono&display=swap" rel="stylesheet">
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Specifications"/>
+<meta name="twitter:description" content="Introduction This part of the specification introduces you to (cloak) &ndash; what it was &ndash; what it is &ndash; what it should be. Cloak daemon schedules tasks for applications and scripts and communicates back if you want it to. The goal is to make creation of cron tasks easy and quick and accessible.
+ Cloak was a personal project that I (author) used to use on my backend server to run some tasks which executed in an interval Now cloak is an API based task-runner runner which stores and runs task not only in a given interval but also at a specific date and time."/>
+
+
+
+<meta property="og:title" content="Specifications" />
+<meta property="og:description" content="Introduction This part of the specification introduces you to (cloak) &ndash; what it was &ndash; what it is &ndash; what it should be. Cloak daemon schedules tasks for applications and scripts and communicates back if you want it to. The goal is to make creation of cron tasks easy and quick and accessible.
+ Cloak was a personal project that I (author) used to use on my backend server to run some tasks which executed in an interval Now cloak is an API based task-runner runner which stores and runs task not only in a given interval but also at a specific date and time." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/specs/v1/" />
+<meta property="article:published_time" content="2018-12-05T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2018-12-05T00:00:00&#43;00:00"/><meta property="og:site_name" content="Rubik | An efficient framework for Go" />
+
+
+
+
+
+
+  </head>
+  <body class="">
+    <div class="container">
+      <header class="header">
+  <span class="header__inner">
+    <a href="/guides/getting-started" class="logo" style="text-decoration: none;">
+  
+    <img src="/img/icon.png" alt="" />
+  
+</a>
+
+    <span class="header__right">
+      
+        <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+            <li><a href="/guides">Guides</a></li>
+        
+      
+        
+            <li><a href="https://pkg.go.dev/github.com/rubikorg/rubik?tab=doc">API Docs</a></li>
+        
+      
+        
+            <li><a href="https://github.com/rubikorg/rubik">Source Code</a></li>
+        
+      
+      
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/guides">Guides</a></li>
+      
+    
+      
+        <li><a href="https://pkg.go.dev/github.com/rubikorg/rubik?tab=doc">API Docs</a></li>
+      
+    
+      
+        <li><a href="https://github.com/rubikorg/rubik">Source Code</a></li>
+      
+    
+  </ul>
+</nav>
+
+        <span class="menu-trigger">
+          
+        </span>
+      
+      
+    </span>
+  </span>
+</header>
+
+
+      <div class="content">
+        
+  <div class="post">
+    <h2 class="post-title"><a href="/specs/v1/">Specifications</a></h2>
+    <div class="post-meta">
+      
+        <span class="post-date">
+            2018-12-05
+        </span>
+      
+      <span class="post-author">— Written by Ashish Shekar</span>
+      
+        <span class="post-read-time">— 5 min read</span>
+      
+    </div>
+
+    
+
+    
+
+    <div class="post-content">
+      
+
+<h3 id="introduction">Introduction</h3>
+
+<p>This part of the specification introduces you to <em>(cloak)</em> &ndash; what it <strong>was</strong> &ndash; what it <strong>is</strong> &ndash; what it <strong>should be</strong>. Cloak daemon schedules tasks for applications and scripts and communicates back if you want it to. The goal is to make creation of cron tasks easy and quick and accessible.</p>
+
+<ul>
+<li>Cloak <strong>was</strong> a personal project that I <em>(author)</em> used to use on my backend server to run some tasks which executed in an interval</li>
+<li>Now cloak <strong>is</strong> an API based task-runner runner which stores and runs task not only in a given interval but also at a specific date and time. Cloak-Time-Format <em>(CTF)</em> is being introduced and v0.0.1 is in the works for general public.</li>
+<li>Cloak <strong>should be</strong> a stateful task-runner, meaning, that it should remember state and should be able to run task with context.</li>
+</ul>
+
+<h3 id="internal-working">Internal Working</h3>
+
+<h4 id="cloak-certificate">Cloak Certificate</h4>
+
+<p>A cloak certificate will be saved at <code>~/.cloak/cloakcrt</code>  with alpha-numeric string generated using your machine-id, which ensures that only authorized tasks are scheduled from another host as well as this host.</p>
+
+<h4 id="cloak-registration">Cloak Registration</h4>
+
+<p>Cloak can run tasks from different application and it is important to register an application for 2 main reasons:</p>
+
+<ul>
+<li>Applications with same name should not create new tasks /(eg: by workers)/</li>
+<li>Applications with same task name can be removed easily</li>
+<li>Maintians ownership <em>(is currently in a quasi phase)</em> &mdash; you wouldn&rsquo;t want one application stopping other&rsquo;s task and start a quarrel</li>
+</ul>
+
+<h4 id="cloak-daemon">Cloak Daemon</h4>
+
+<p>Although cloak runs as daemon service it receives new tasks from a HTTP endpoints. Defaulr server port is <code>:12133</code> and has only 4 endpoints:</p>
+
+<blockquote>
+<p><em>Cloak certificate content</em> must be sent as <code>Authorization</code> header for each request as <code>Bearer</code> token.</p>
+</blockquote>
+
+<ul>
+<li><span class="api-method-post">POST</span> <strong><code>/register</code></strong> - registers an application with cloak daemon to create entities
+
+<ul>
+<li><code>app</code>: name of the app</li>
+</ul></li>
+
+<li><p><span class="api-method-post">POST</span> <strong><code>/add</code></strong> - adds a task</p>
+
+<ul>
+<li><code>app</code>: name of the app</li>
+<li><code>name</code>: name of the task (why naming task is important ?)</li>
+<li><code>type</code>: <code>file</code> or <code>command</code>or<code>plain</code></li>
+<li><code>target</code>: <code>path</code> to binary or <code>command</code> to run or simple <code>callback</code> to the topic
+<br /></li>
+</ul>
+
+<blockquote>
+<p>events will be sent to <code>app:taskName</code> to avoid conflicts between apps</p>
+</blockquote>
+
+<ul>
+<li><code>ctf</code>: cloak time format string for scheduling</li>
+</ul></li>
+
+<li><p><span class="api-method-post">POST</span> <strong><code>/remove</code></strong> - removes a task</p>
+
+<ul>
+<li><code>app</code>: name of the app</li>
+<li><code>name</code>: task name to remove</li>
+</ul></li>
+
+<li><p><span class="api-method-get">GET</span> <strong><code>/list</code></strong> - retrieve a list of tasks for a project</p>
+
+<ul>
+<li><code>app</code>: name of the app</li>
+<li><code>name</code>: task name to remove</li>
+<li><code>status</code>: filter using status</li>
+</ul></li>
+</ul>
+
+<h4 id="cloak-database">Cloak Database</h4>
+
+<p>Cloak uses BoltDB for saving and managing status of the tasks mostly because of its key value nature, and a single application can be viewed as a bucket in BoltDB.</p>
+
+<h4 id="cloak-events">Cloak Events</h4>
+
+<p>Cloak events are a way to notify the subscriber of any events that is happening on a <code>project</code> level.</p>
+
+<h4 id="cloak-task-functions-ctf">Cloak Task Functions (CTF)</h4>
+
+<p>Cloak task functions makes it easy to define tasks whenever you want with simple function definitions.</p>
+
+<p><em><strong>Note:</strong> the &lsquo;$&rsquo; is just to specify that it is a value and should not be included while providing the value.</em></p>
+
+<ul>
+<li><code>.date($value)</code> - this function provides the exact date at which this task should run. The format of date accepted by cloak is <code>YYYY-MM-DD</code>. It runs the task at <strong>00:00</strong> on the specified date.</li>
+<li><code>.time($value)</code> - this function accepts a 24 hour time format <em>(HH:MM)</em> that schedules your command to run on a specific time.</li>
+</ul>
+
+<blockquote>
+<p>A combiation of <em>.date(), .time() &amp; .repeat()</em> is possible which will start from specified .date at the specefied .time and repeat with &lsquo;N&rsquo; interval.</p>
+</blockquote>
+
+<ul>
+<li><code>.repeat($value)</code> - this function lets you specify the repeat interval for a given task. Accepted suffixes:
+
+<ul>
+<li><strong>d</strong>: day</li>
+<li><strong>h</strong>: hour</li>
+<li><strong>m</strong>: minute</li>
+<li><strong>s</strong>: second</li>
+</ul></li>
+</ul>
+
+<blockquote>
+<p>Why can&rsquo;t you have month or a year suffix which can be a lot of help? &mdash;&ndash; May be &ldquo;I don&rsquo;t know&rdquo;. It is kind of vague in terms of the usability of repeat after an interval of a month or a year, to not over-complicate the working and the boundaries of CTFs it is recommended to use .date()</p>
+</blockquote>
+
+<ul>
+<li><code>.day($values)</code> - this function adds a filter to the above functions. Accepted values are <code>sun, mon, tue, wed, thu, fri, sat</code> and multiple filter can be provided as <em><strong>comma-separated</strong></em> values.</li>
+</ul>
+
+<h4 id="cloak-task-and-it-s-states">Cloak Task and it&rsquo;s States</h4>
+
+<p>Cloak task can only be present in these 4 states:</p>
+
+<ol>
+<li><code>Completed</code>: A task was completed successfully with a 0 exit code <em>(A completed task is a one-shot task that ran succesfully in the past and not re-scheduled by the cloak scheduler)</em></li>
+<li><code>Running</code>: A task is currently running</li>
+<li><code>Scheduled</code>: This task has been scheduled</li>
+<li><code>Errored</code>: A task has exited with non-zero exit code <em>(An errored task is never re-scheduled)</em></li>
+</ol>
+
+<h5 id="q-a-how-to-specify-for-a-task-to-run-every-day-when-day-only-accepts-the-following-values-write-all-7-days">Q&amp;A: How to specify for a task to run every day when .day() only accepts the following values? Write all 7 days?</h5>
+
+<ul>
+<li><code>.repeat(1d)</code> should do the trick</li>
+</ul>
+
+<h4 id="edge-cases-what-happens-if-you-don-t-specify-some-modifiers">Edge-cases: What happens if you don’t specify some modifiers ?</h4>
+
+<ul>
+<li>Even though the modifiers not specified, if cloak has enough information about the occurrence and the day/date, it’ll schedule for the current time</li>
+<li>If <code>occurrence</code>is not specified, it’ll run the task at a specific <code>day/date</code> once.</li>
+<li>If <code>occurrence</code> and <code>day/date</code> is not specified but the <code>time</code> is specified, and if time has not yet passed yet it’ll run once at the given <code>time</code></li>
+</ul>
+
+<h4 id="things-that-has-not-yet-made-the-draft">Things that has not yet made the draft</h4>
+
+<ul>
+<li><code>cloak console</code> to get realtime view of tasks that are running and to stop or delete a task.</li>
+<li><code>cloak rebuild</code> which can rebuild the same tasks and applications from one server inside another server</li>
+</ul>
+
+    </div>
+    
+
+    
+
+    </div>
+
+      </div>
+
+      
+        <footer class="footer">
+  <div class="footer__inner">
+    
+    <div class="copyright copyright--user">
+      <span>Caught a mistake or want to contribute to the documentation? - <a target="_blank" href="https://github.com/rubikorg/rubikorg.github.io">Edit on GitHub!</a></span>
+      <span>© Ashish Shekar 2020</span>
+    </div>
+    
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+      
+    </div>
+
+    
+  </body>
+</html>
