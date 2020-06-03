@@ -436,7 +436,6 @@ a.read-more:hover {
 .menu-trigger {
 	width: 24px;
 	height: 24px;
-	fill: black;
 	margin-left: 10px;
 	cursor: pointer
 }
@@ -528,7 +527,8 @@ h4 {
 }
 
 a {
-	color: inherit
+	color: inherit;
+	-webkit-tap-highlight-color: transparent;
 }
 
 img {
@@ -1125,6 +1125,11 @@ hr {
 .archive__post-title a {
 	display: block;
 	text-decoration: none
+}
+
+.em {
+	width: 20px;
+	margin-bottom: 5px;
 }
 
 /**

@@ -55,13 +55,13 @@ So in the last tutorial we created a project called helloworld and we ran it usi
     
     <item>
       <title>Sources of Rubik</title>
-      <link>/guides/navigating-docs/</link>
+      <link>/guides/rubik-sources/</link>
       <pubDate>Sat, 30 May 2020 00:00:00 +0000</pubDate>
       
-      <guid>/guides/navigating-docs/</guid>
+      <guid>/guides/rubik-sources/</guid>
       <description>This topic holds the culmunation of guides, docs, and videos about Rubik. Since Rubik is an young project yet to set foot on production you will always have a lack of resources and places to look for Projects.
-This will have a List of Resources to browse through:
-   Link Type Purpose URL     Video First Rubik Demo Link   Doc GoDoc of Rubik Link   Blog Command your Rubik Workspace Link    </description>
+Below are some list of resources to browse through:
+   Type Purpose URL     Video First Rubik Demo Link   Doc GoDoc of Rubik Link   Blog Command your Rubik Workspace Link    </description>
     </item>
     
     <item>
@@ -71,7 +71,7 @@ This will have a List of Resources to browse through:
       
       <guid>/guides/join-us/</guid>
       <description>Rubik was created from the inspiration of many frameworks like Django, Loopback, Flask etc. The idea here is to quickly get started with building web client-server apps in Go and have fun while building it.
-Identifying Problems If you come accross some issues and problems that is part of rubik and it is not working the way it should be, feel free to create an issue on our GitHub repository.</description>
+If you have the same vision and goal as us you can contact us and be a part of the development process without any delay. We do not believe in who is experienced and/or beginner.</description>
     </item>
     
     <item>
@@ -80,7 +80,7 @@ Identifying Problems If you come accross some issues and problems that is part o
       <pubDate>Thu, 28 May 2020 00:00:00 +0000</pubDate>
       
       <guid>/blog/rubik-commands/</guid>
-      <description> WIP ! </description>
+      <description> WIP !  </description>
     </item>
     
     <item>
