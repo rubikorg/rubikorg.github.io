@@ -1,8 +1,11 @@
-mkdocs build -d ../rubikorg.github.io --clean
+rm -rf ../rubikorg.github.io/*
+hugo -d ../rubikorg.github.io
 cd ../rubikorg.github.io
 git add .
-git commit -am "deploy docs"
+git commit -m "deploy docs"
 git push origin master
-cd ../cherry-docs
+cd ../rubik-docs-new
 
-echo "Done !!!"
+echo "Done !!"
+
+ 
