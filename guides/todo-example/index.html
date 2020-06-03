@@ -117,7 +117,7 @@ So in the last tutorial we created a project called helloworld and we ran it usi
       
       <span class="post-author">— Written by Ashish Shekar</span>
       
-        <span class="post-read-time">— 3 min read</span>
+        <span class="post-read-time">— 5 min read</span>
       
     </div>
 
@@ -239,11 +239,21 @@ to be descriptive and easy to read.</p>
 
 <h2 id="add-a-todo">Add a TODO</h2>
 
-<p>For persistance we are going to use a simple [SQLite]() module for Go and save our todo into a <code>.sqlite</code> file. Let&rsquo;s create
-a new add route inside our <code>todo/route.go</code>.</p>
+<p>Create a TODO struct before we use it in our <code>route.go</code> code.</p>
+
+<pre><code class="language-go">type todo struct {
+	ID 			int
+	Title 		string
+	Body 		string
+	IsFinished 	bool
+}
+</code></pre>
+
+<p>Create a new &ldquo;add&rdquo; route inside our <code>todo/route.go</code>.</p>
 
 <pre><code class="language-go">var addRoute = r.Route{
 	Path:       &quot;/add&quot;,
+	Entity: 	todo{}, // NOTICE -- this line
 	Controller: addCtl,
 }
 
@@ -254,14 +264,141 @@ func init() {
 }
 </code></pre>
 
-<p>Let&rsquo;s create our controller called <code>addCtl</code> inside our <code>todo/controller.go</code>.</p>
+<p>Create our controller called <code>addCtl</code> inside our <code>todo/controller.go</code>.</p>
 
-<pre><code class="language-go">func addCtl(req *Request) {
+<pre><code class="language-go">import r &quot;github.com/rubikorg/rubik&quot;
+
+func addCtl(req *r.Request) {
     req.Respond(&quot;I am the add route for TODO app&quot;)
 }
 </code></pre>
 
 <p>Now let&rsquo;s run our server by doing <code>okrubik run -a server</code> and going to <a href="http;//localhost:4000/todo/add">http;//localhost:4000/todo/add</a>. You&rsquo;ll see the reponse that you have returned using the <code>Respond()</code> method.</p>
+
+<p>For persistance we are going to use a simple <a href="https://www.sqlite.org/index.html">SQLite</a> module for Go and save our todo into a <code>.db</code> file. Let&rsquo;s work on the saving the TODO part which is much more interesting that setting up a Route. We need to initialize a database connection for saving our queries to the <code>.db</code> file. Navigate and open <code>main.go</code> file.</p>
+
+<pre><code class="language-go">package main
+
+import (
+	&quot;database/sql&quot; // ADD -- Core SQL module
+	cfg &quot;github.com/rubikorg/okrubik/cmd/server/config&quot;
+
+	&quot;github.com/rubikorg/rubik&quot;
+	_ &quot;github.com/mattn/go-sqlite3&quot; // ADD -- import sqlite driver
+)
+
+func main() {
+	var config cfg.ProjectConfig
+	err := rubik.Load(&amp;config)
+	if err != nil {
+		panic(err)
+	}
+
+	// ADD -- code to initialize our DB Connetion
+	database, err := sql.Open(&quot;sqlite3&quot;, &quot;../../rubik-todo.db&quot;)
+	if err != nil {
+		// because we can't save todo without db connection
+		panic(err)
+	}
+
+	// ADD -- sql query to create our todo table inside sqlite
+	createQ := &quot;CREATE TABLE IF NOT EXISTS todo (id INTEGER PRIMARY KEY, title TEXT, body TEXT)&quot;
+	statement, _ := database.Prepare(createQ)
+	statement.Exec()
+
+	// ADD -- this line is used to set our global dependencies
+	// Since we only have db connection as our dependency
+	// we add it directly
+	rubik.SetDep(database)
+
+	routers.Import()
+
+	panic(rubik.Run())
+}
+</code></pre>
+
+<p>Great! we have setup a Database Connection to our SQLite database and we are now ready to go into
+Action mode. Navigate and open <code>controller.go</code> inside our todo router and go to <code>addCtl</code>.</p>
+
+<pre><code class="language-go">package todo
+
+import (
+	&quot;database/sql&quot;
+
+	r &quot;github.com/rubikorg/rubik&quot;
+)
+
+func indexCtl(req *r.Request) {
+	req.Respond(&quot;Hello, this is the todo router!&quot;)
+}
+
+func addCtl(req *r.Request) {
+	// Get our global dependency
+	db, _ := req.GetDep().(*sql.DB)
+	// get our todo values from the api
+	td, _ := req.Entity.(*todo)
+
+	statement, _ := db.Prepare(&quot;INSERT INTO todo (title, body) VALUES (?, ?)&quot;)
+	_, err := statement.Exec(td.Title, td.Body)
+	if err != nil {
+		req.Throw(500, err)
+	}
+
+	req.Respond(&quot;Saved!&quot;)
+}
+</code></pre>
+
+<p>Now click on this <a href="http://localhost:4000/todo/add?title=Hello&amp;body=World">http://localhost:4000/todo/add?title=Hello&amp;body=World</a> link to see &ldquo;Saved!&rdquo;.</p>
+
+<p>The Rubik&rsquo;s &ldquo;Entity&rdquo; abstraction makes it easy to get the values from <code>query</code> directly to the <code>td</code> variable. Now
+we get the list of all save TODOs by creating a <code>/list</code> route.</p>
+
+<ul>
+<li>todo/route.go</li>
+</ul>
+
+<pre><code class="language-go">var listRoute = r.Route{
+	Path:       &quot;/list&quot;,
+	Controller: listCtl,
+}
+</code></pre>
+
+<pre><code class="language-go">Router.Add(listRoute)
+</code></pre>
+
+<ul>
+<li>todo/controller.go</li>
+</ul>
+
+<pre><code class="language-go">func listCtl(req *r.Request) {
+	db, _ := req.GetDep().(*sql.DB)
+	rows, err := db.Query(&quot;SELECT * FROM todo&quot;)
+	if err != nil {
+		req.Throw(500, err)
+		return
+	}
+
+	var todos []todo
+	for rows.Next() {
+		t := todo{}
+		err := rows.Scan(&amp;t.ID, &amp;t.Title, &amp;t.Body)
+		if err != nil {
+			req.Throw(500, err)
+			return
+		}
+
+		todos = append(todos, t)
+	}
+
+	req.Respond(todos, r.Type.JSON)
+}
+</code></pre>
+
+<p>This will help us view the TODOs in <code>JSON</code> format and make us feel <strong>awesome</strong>. Go to
+<a href="http://localhost:4000/todo/list">http://localhost:4000/todo/list</a>.</p>
+
+<p>Easy right? Rubik is currently in alpha and do not have a lot of documentation or guides. If you
+wanna help us put more guides or write for us please visit <a href="/guides/join-us">Join Us Section</a>.</p>
 
     </div>
     
