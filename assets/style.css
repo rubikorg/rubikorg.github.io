@@ -581,7 +581,7 @@ figure figcaption.right {
 }
 
 code {
-	font-family: 'Oxygen Mono', Monaco, monospace;
+	font-family: monospace, monospace;
 	-webkit-font-feature-settings: normal;
 	font-feature-settings: normal;
 	padding: 1px 6px;
@@ -1144,7 +1144,7 @@ hr {
 	 color: #f8f8f2;
 	 background: none;
 	 text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-	 font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	 font-family: monospace, monospace;
 	 text-align: left;
 	 white-space: pre;
 	 word-spacing: normal;
