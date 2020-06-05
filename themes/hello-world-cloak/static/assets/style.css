@@ -581,7 +581,7 @@ figure figcaption.right {
 }
 
 code {
-	font-family: 'Oxygen Mono', Monaco, monospace;
+	font-family: monospace, monospace;
 	-webkit-font-feature-settings: normal;
 	font-feature-settings: normal;
 	padding: 1px 6px;
@@ -590,6 +590,10 @@ code {
 	border-radius: .25em;
 	font-size: .9rem;
 	font-weight: 00
+}
+
+pre > code {
+	border: none;
 }
 
 .dark-theme code {
@@ -1144,7 +1148,7 @@ hr {
 	 color: #f8f8f2;
 	 background: none;
 	 text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-	 font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	 font-family: monospace, monospace;
 	 text-align: left;
 	 white-space: pre;
 	 word-spacing: normal;
@@ -1199,6 +1203,7 @@ hr {
  .token.tag,
  .token.constant,
  .token.symbol,
+ .token.keyword,
  .token.deleted {
 	 color: #ff79c6;
  }
@@ -1210,11 +1215,10 @@ hr {
  
  .token.selector,
  .token.attr-name,
- .token.string,
  .token.char,
  .token.builtin,
  .token.inserted {
-	 color: #50fa7b;
+	 color: #affd8b;
  }
  
  .token.operator,
@@ -1228,12 +1232,12 @@ hr {
  
  .token.atrule,
  .token.attr-value,
- .token.function,
+ .token.string,
  .token.class-name {
 	 color: #f1fa8c;
  }
  
- .token.keyword {
+ .token.function {
 	 color: #8be9fd;
  }
  

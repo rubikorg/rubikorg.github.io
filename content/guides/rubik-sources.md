@@ -8,7 +8,7 @@ description = "This collection will help you through the tough times of knowing 
 This topic holds the culmunation of guides, docs, and videos about Rubik. Since Rubik is an young project yet
 to set foot on production you will always have a lack of resources and places to look for Projects.
 
-Below are some list of resources to browse through:
+Below are some list of resources to browse through or watch:
 
 | Type | Purpose | URL |
 |-----------|-----|-------|
