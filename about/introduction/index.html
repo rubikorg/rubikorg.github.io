@@ -9,15 +9,15 @@
         
         
         
-        <link rel="shortcut icon" href="../img/icon.png">
-        <title>Rubik Blog! - Introduction | Rubik</title>
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
+        <link rel="shortcut icon" href="../../img/icon.png">
+        <title>Introduction - Introduction | Rubik</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
 
-        <script src="../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
         <script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
@@ -29,7 +29,7 @@
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a href=".."><span style="font-weight: bold; font-size: 18px;">Rubik</span></a><span style="padding-right: 1.5em;padding-left: 0.2em;">[alpha]</span>
+                <a href="../.."><span style="font-weight: bold; font-size: 18px;">Rubik</span></a><span style="padding-right: 1.5em;padding-left: 0.2em;">[alpha]</span>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
                     <span class="navbar-toggler-icon">
@@ -42,23 +42,23 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="navitem">
-                                <a href=".." class="nav-link">Home</a>
+                                <a href="../.." class="nav-link">Home</a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">APIs <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../essentials/apis/" class="dropdown-item">Core</a>
+    <a href="../../essentials/apis/" class="dropdown-item">Core</a>
 </li>
                                     
 <li>
-    <a href="../essentials/blocks/" class="dropdown-item">Blocks</a>
+    <a href="../../essentials/blocks/" class="dropdown-item">Blocks</a>
 </li>
                                 </ul>
                             </li>
                             <li class="navitem">
-                                <a href="../about/release-notes/" class="nav-link">Releases</a>
+                                <a href="../release-notes/" class="nav-link">Releases</a>
                             </li>
                         </ul>
 
@@ -95,9 +95,13 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="0"><a href="#rubik-blog" class="nav-link">Rubik Blog!</a>
+            <li class="nav-item" data-level="0"><a href="#prologue" class="nav-link">Prologue</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="1"><a href="#rubik-is-not-just-a-side-project" class="nav-link">Rubik is not just a side project</a>
+            <li class="nav-item" data-level="1"><a href="#goals" class="nav-link">Goals</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="1"><a href="#concerns" class="nav-link">Concerns</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -109,12 +113,23 @@
                     <div class="col-md-9" role="main">
                         
 
-<h1 id="rubik-blog">Rubik Blog!<a class="headerlink" href="#rubik-blog" title="Permanent link"></a></h1>
-<p><br /></p>
-<h3 id="rubik-is-not-just-a-side-project">Rubik is not just a side project<a class="headerlink" href="#rubik-is-not-just-a-side-project" title="Permanent link"></a></h3>
-<p><p class="micro-text-grey">Author: Ashish Shekar | 2020-02-02</p></p>
-<p>Desctiption ...</p>
-<hr />
+<!-- <img id="banner" style="background: transparent; border-width: 0px;" src="/img/gopher_banner_rubik.png"> -->
+
+<h2 id="prologue">Prologue<a class="headerlink" href="#prologue" title="Permanent link"></a></h2>
+<p>Rubik aims to provide the tools and programmable APIs needed to quickly handle your server-side needs.</p>
+<p>Rubik has a robust layer of Go's reflection supporting the whole framework and provide many simple
+high-level APIs for handling complex tasks. The directory structure of Rubik is minimal but effective.</p>
+<p>Among other things, Rubik will serve as a great replacement for your server-side needs and will in turn
+provide many pluggable blocks.</p>
+<h3 id="goals">Goals<a class="headerlink" href="#goals" title="Permanent link"></a></h3>
+<p>= Keep a small footprint</p>
+<p>= Provide Block <em>(extenstion)</em> APIs that can basically support any integration</p>
+<p>= Support this micro-framework with extensive tooling, which is to be focused always.
+Writing APIs quickly is of utmost priority.</p>
+<h3 id="concerns">Concerns<a class="headerlink" href="#concerns" title="Permanent link"></a></h3>
+<p>Apart from being <a href="https://twitter.com/ashish_shekar">@my</a> largest project in terms of sheer code size I think it needs
+to be trimmed down in the upcoming releases. In order to stay small it must let go of some features in any of the
+following alpha releases.</p>
 
                         ---<br/>
                         Caught a mistake or want to contribute to the documentation? <a target="_blank" href="https://github.com/okrubik/okrubik.github.io">Edit on GitHub!</a>
@@ -128,11 +143,11 @@
             <p class="mini-text">Copyright &copy; 2019-2020 Ashish Shekar <a href="https://github.com/rubikorg">@rubikorg</a>.</p>
         </footer>
         <script>
-            var base_url = "..",
+            var base_url = "../..",
                 shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
         </script>
-        <script src="../js/base.js" defer></script>
-        <script src="../search/main.js" defer></script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">

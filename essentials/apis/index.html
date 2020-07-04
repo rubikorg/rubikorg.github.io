@@ -10,7 +10,7 @@
         
         
         <link rel="shortcut icon" href="../../img/icon.png">
-        <title>Releases - Introduction | Rubik</title>
+        <title>Core - Introduction | Rubik</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -44,21 +44,21 @@
                             <li class="navitem">
                                 <a href="../.." class="nav-link">Home</a>
                             </li>
-                            <li class="dropdown">
+                            <li class="dropdown active">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">APIs <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../../essentials/apis/" class="dropdown-item">Core</a>
+    <a href="./" class="dropdown-item active">Core</a>
 </li>
                                     
 <li>
-    <a href="../../essentials/blocks/" class="dropdown-item">Blocks</a>
+    <a href="../blocks/" class="dropdown-item">Blocks</a>
 </li>
                                 </ul>
                             </li>
-                            <li class="navitem active">
-                                <a href="./" class="nav-link">Releases</a>
+                            <li class="navitem">
+                                <a href="../../about/release-notes/" class="nav-link">Releases</a>
                             </li>
                         </ul>
 
@@ -69,12 +69,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../../essentials/blocks/" class="nav-link">
+                                <a rel="prev" href="../.." class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" class="nav-link disabled">
+                                <a rel="next" href="../blocks/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -105,26 +105,50 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="0"><a href="#release-notes" class="nav-link">Release Notes</a>
+            <li class="nav-item" data-level="0"><a href="#apis" class="nav-link">APIs</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="1"><a href="#v020" class="nav-link">v0.2.0</a>
+            <li class="nav-item" data-level="1"><a href="#templating" class="nav-link">Templating</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#june-02-2020" class="nav-link">June 02 2020</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
-            <li class="nav-item" data-level="1"><a href="#v01" class="nav-link">v0.1</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#may-29-2020" class="nav-link">May 29 2020</a>
+            <li class="nav-item" data-level="2"><a href="#render" class="nav-link">Render</a>
               <ul class="nav flex-column">
               </ul>
             </li>
               </ul>
             </li>
-            <li class="nav-item" data-level="1"><a href="#milestone-rubik-one" class="nav-link">Milestone: Rubik One</a>
+            <li class="nav-item" data-level="1"><a href="#storage-container" class="nav-link">Storage Container</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#getstoragecontainers" class="nav-link">GetStorageContainers</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#access" class="nav-link">Access</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#remove" class="nav-link">Remove</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            <li class="nav-item" data-level="1"><a href="#filestore" class="nav-link">FileStore</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#has" class="nav-link">Has</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#get" class="nav-link">Get</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#put" class="nav-link">Put</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#delete" class="nav-link">Delete</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
               </ul>
@@ -135,61 +159,97 @@
                     <div class="col-md-9" role="main">
                         
 
-<h1 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link"></a></h1>
-<p><br /></p>
-<!-- ### v0.3.0 (TBD) -->
+<h1 id="apis">APIs<a class="headerlink" href="#apis" title="Permanent link"></a></h1>
+<p><br/></p>
+<h2 id="templating">Templating<a class="headerlink" href="#templating" title="Permanent link"></a></h2>
+<p>The Rubik APIs for using Go's templating engine which makes it easier for creating REST APIs.</p>
+<h4 id="render">Render<a class="headerlink" href="#render" title="Permanent link"></a></h4>
+<p><code>type: Function</code></p>
+<p>Render returns a mixin holding the data to be rendered on the web page or sent over the wire.</p>
+<pre><code class="go">import r &quot;github.com/rubikorg/rubik&quot;
 
-<h3 id="v020">v0.2.0<a class="headerlink" href="#v020" title="Permanent link"></a></h3>
-<h6 id="june-02-2020">June 02 2020<a class="headerlink" href="#june-02-2020" title="Permanent link"></a></h6>
-<ul>
-<li>Changes to Rubik’s Controller signature — Everything is a controller - <a href="https://github.com/rubikorg/rubik/pull/32">#32</a></li>
-</ul>
-<pre><code class="go">var r := rubik.Route{
-    Path: “/”,
-    Controller: indexCtl,
-}
-
-// === old method signature ===
-// fund indexCtlOld(en interface{}) rubik.ByteResponse{
-//  return rubik.Success(&quot;Hello World&quot;)
-// }
-
-// === much cleaner and simple 0.2.0 method signature ===
-func indexCtl(req *rubik.Request) {
-    // rubik.Failure is now (req.Throw)
-    req.Respond(“Hello World&quot;)
+func myCtl(req *r.Request) {
+    return r.Render(r.Type.HTML, req.Entity, &quot;mypage.html&quot;)
 }
 </code></pre>
 
-<ul>
-<li>Now supports <strong>interop</strong> with Go's stdlib -- Any Handler || HandlerFunc can be casted to Controller</li>
-</ul>
-<pre><code class="go">var r := rubik.Route{
-    Path: “/”,
-    Controller: rubik.UseHandlerFunc(indexHandlerFunc), // OR UseHandler() for handlers
+<p><br/></p>
+<h2 id="storage-container">Storage Container<a class="headerlink" href="#storage-container" title="Permanent link"></a></h2>
+<p><code>type: Struct</code></p>
+<p>StorageContainer is abstracted struct to access your storage files. It can access of remove
+a whole container. Container corresponds to a single directory in your storage folder and will
+have access to files only inside this container/directory.</p>
+<h4 id="getstoragecontainers">GetStorageContainers<a class="headerlink" href="#getstoragecontainers" title="Permanent link"></a></h4>
+<p><code>type: Function</code></p>
+<p>GetStorageContainers returns the names of containers present in your storage/ folder. You can
+access them by calling <code>Storage.Access</code> API and use Get or Put to work with your files.</p>
+<pre><code class="go">import r &quot;github.com/rubikorg/rubik&quot;
+
+containers := r.GetStorageContainers()
+for _, name := range containers {
+    // do something with these containers
 }
 
-func indexHandlerFunc(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprint(&amp;w, “Hello world&quot;)
+</code></pre>
+
+<h4 id="access">Access<a class="headerlink" href="#access" title="Permanent link"></a></h4>
+<p><code>type: Function</code></p>
+<p>Access a FileStore from your StorageContainer. It can be viewed as accessing a specific folder
+inside your storage/ folder and performing operations inside of that folder.</p>
+<pre><code class="go">fileStore, err := r.Storage.Access(&quot;paymentFiles&quot;)
+if err != nil {
+    // cannot access this container
 }
 </code></pre>
 
-<ul>
-<li><code>okrubik gen router ${name}</code> this command now parses ast properly and adds the new router import and its 
-invocation </li>
-<li>There is a new method call <code>NewProbe()</code> which helps you with testing rubik.Router(s)</li>
-<li>CLI is now migrated to cobra instead of vanilla flag.Parse() for scalability reasons - 
-<a href="https://github.com/rubikorg/okrubik/pull/5">#5</a></li>
-<li>Improved API Documentation</li>
-</ul>
-<h3 id="v01">v0.1<a class="headerlink" href="#v01" title="Permanent link"></a></h3>
-<h6 id="may-29-2020">May 29 2020<a class="headerlink" href="#may-29-2020" title="Permanent link"></a></h6>
-<ul>
-<li>Basic structure setup and conventions</li>
-<li>okrubik CLI</li>
-<li>rubik-client - alpha</li>
-</ul>
-<h3 id="milestone-rubik-one">Milestone: Rubik One<a class="headerlink" href="#milestone-rubik-one" title="Permanent link"></a></h3>
+<h4 id="remove">Remove<a class="headerlink" href="#remove" title="Permanent link"></a></h4>
+<p><code>type: Function</code></p>
+<p>Remove a FileStore from your StorageContainer. Removing a FileStore will remove all the files
+inside the FileStore.</p>
+<pre><code class="go">err := r.Storage.Remove(&quot;paymentFiles&quot;)
+if err != nil {
+    // error occured while deleting container
+}
+</code></pre>
+
+<h2 id="filestore">FileStore<a class="headerlink" href="#filestore" title="Permanent link"></a></h2>
+<p><code>type: Struct</code></p>
+<p>FileStore lets you perform CRUD on files of StorageContainer. FileStore returns the name of
+container you are accessing by Name field.</p>
+<h4 id="has">Has<a class="headerlink" href="#has" title="Permanent link"></a></h4>
+<p><code>type: Function</code></p>
+<p>Has checks if the file by given name is present inside this FileStore.</p>
+<pre><code class="go">if fileStore.Has(&quot;file.txt&quot;) {
+    // do something
+}
+</code></pre>
+
+<h4 id="get">Get<a class="headerlink" href="#get" title="Permanent link"></a></h4>
+<p><code>type: Function</code></p>
+<p>Get a file from this FileStore, returs byte slice.</p>
+<pre><code class="go">fileContents := fileStore.Get(&quot;file.txt&quot;)
+if fileContents == nil {
+    // did not find file
+}
+</code></pre>
+
+<h4 id="put">Put<a class="headerlink" href="#put" title="Permanent link"></a></h4>
+<p><code>type: Function</code></p>
+<p>Put a file inside this FileStore given the content as parameter.</p>
+<pre><code class="go">err := fileStore.Put(&quot;file.txt&quot;, contents)
+if err != nil {
+    // error occured while writing to disk
+}
+</code></pre>
+
+<h4 id="delete">Delete<a class="headerlink" href="#delete" title="Permanent link"></a></h4>
+<p><code>type: Function</code></p>
+<p>Delete a file from the FileStore, returns error.</p>
+<pre><code class="go">err := fileStore.Delete(&quot;file.txt&quot;)
+if err != nil {
+    // error occured while deleting
+}
+</code></pre>
 
                         ---<br/>
                         Caught a mistake or want to contribute to the documentation? <a target="_blank" href="https://github.com/okrubik/okrubik.github.io">Edit on GitHub!</a>

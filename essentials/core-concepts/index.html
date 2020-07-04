@@ -9,15 +9,15 @@
         
         
         
-        <link rel="shortcut icon" href="../img/icon.png">
-        <title>Rubik Blog! - Introduction | Rubik</title>
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/font-awesome.min.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
+        <link rel="shortcut icon" href="../../img/icon.png">
+        <title>Project Structure - Introduction | Rubik</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
 
-        <script src="../js/jquery-1.10.2.min.js" defer></script>
-        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
         <script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
@@ -29,7 +29,7 @@
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a href=".."><span style="font-weight: bold; font-size: 18px;">Rubik</span></a><span style="padding-right: 1.5em;padding-left: 0.2em;">[alpha]</span>
+                <a href="../.."><span style="font-weight: bold; font-size: 18px;">Rubik</span></a><span style="padding-right: 1.5em;padding-left: 0.2em;">[alpha]</span>
                 <!-- Expander button -->
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
                     <span class="navbar-toggler-icon">
@@ -42,23 +42,23 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="navitem">
-                                <a href=".." class="nav-link">Home</a>
+                                <a href="../.." class="nav-link">Home</a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">APIs <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     
 <li>
-    <a href="../essentials/apis/" class="dropdown-item">Core</a>
+    <a href="../apis/" class="dropdown-item">Core</a>
 </li>
                                     
 <li>
-    <a href="../essentials/blocks/" class="dropdown-item">Blocks</a>
+    <a href="../blocks/" class="dropdown-item">Blocks</a>
 </li>
                                 </ul>
                             </li>
                             <li class="navitem">
-                                <a href="../about/release-notes/" class="nav-link">Releases</a>
+                                <a href="../../about/release-notes/" class="nav-link">Releases</a>
                             </li>
                         </ul>
 
@@ -95,12 +95,8 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="0"><a href="#rubik-blog" class="nav-link">Rubik Blog!</a>
+            <li class="nav-item" data-level="0"><a href="#project-structure" class="nav-link">Project Structure</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="1"><a href="#rubik-is-not-just-a-side-project" class="nav-link">Rubik is not just a side project</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
               </ul>
             </li>
         </ul>
@@ -109,12 +105,53 @@
                     <div class="col-md-9" role="main">
                         
 
-<h1 id="rubik-blog">Rubik Blog!<a class="headerlink" href="#rubik-blog" title="Permanent link"></a></h1>
-<p><br /></p>
-<h3 id="rubik-is-not-just-a-side-project">Rubik is not just a side project<a class="headerlink" href="#rubik-is-not-just-a-side-project" title="Permanent link"></a></h3>
-<p><p class="micro-text-grey">Author: Ashish Shekar | 2020-02-02</p></p>
-<p>Desctiption ...</p>
-<hr />
+<h1 id="project-structure">Project Structure<a class="headerlink" href="#project-structure" title="Permanent link"></a></h1>
+<table>
+<thead>
+<tr>
+<th>File/Folder</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>main.go</td>
+<td>The entrypoint of your Rubik server. This is where your config is loaded and server is started.</td>
+</tr>
+<tr>
+<td>config/</td>
+<td>The TOML configurations of your project is placed here. <code>decl.go</code> is the declaration of your config.</td>
+</tr>
+<tr>
+<td>routers/</td>
+<td>Routers hold group of routes. Routers are grouped by responsibilities/domains in rubik.</td>
+</tr>
+<tr>
+<td>routers/*/route.go</td>
+<td>This file handles the creation of router and addition of routes under this domain.</td>
+</tr>
+<tr>
+<td>routers/*/controller.go</td>
+<td>Corresponding controllers of all routes under this domain can be located here.</td>
+</tr>
+<tr>
+<td>routers/import.go</td>
+<td>This file contains <code>Import</code> function which is the entripoint of all Routers into Rubik.</td>
+</tr>
+<tr>
+<td>static/</td>
+<td>This folder contains all the files that you want to serve statically under <code>/static</code> prefix path.</td>
+</tr>
+<tr>
+<td>templates/</td>
+<td>This folder holds files used for redering template as response.</td>
+</tr>
+<tr>
+<td>storage/</td>
+<td>This folder all files that can be organized and stored using the <code>Storage</code> API of Rubik.</td>
+</tr>
+</tbody>
+</table>
 
                         ---<br/>
                         Caught a mistake or want to contribute to the documentation? <a target="_blank" href="https://github.com/okrubik/okrubik.github.io">Edit on GitHub!</a>
@@ -128,11 +165,11 @@
             <p class="mini-text">Copyright &copy; 2019-2020 Ashish Shekar <a href="https://github.com/rubikorg">@rubikorg</a>.</p>
         </footer>
         <script>
-            var base_url = "..",
+            var base_url = "../..",
                 shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
         </script>
-        <script src="../js/base.js" defer></script>
-        <script src="../search/main.js" defer></script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">

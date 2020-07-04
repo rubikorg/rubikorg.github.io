@@ -1,284 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-	<meta name="generator" content="Hugo 0.54.0" />
-    
-      <title>Rubik | An efficient framework for Go — Welcome to Rubik Docs</title>
-    
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="Welcome to Rubik Docs"/>
-<meta name="keywords" content=""/>
-<meta name="robots" content="noodp"/>
-<link rel="canonical" href="/" />
-<link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
-
-
-<link rel="stylesheet" href="/assets/style.css">
-
-
-<link rel="stylesheet" href="/style.css">
-
-
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/apple-touch-icon-144-precomposed.png">
-<link rel="shortcut icon" href="/img/favicon.png">
-
-
-<link href="https://fonts.googleapis.com/css?family=Spectral|Muli:900|Oxygen+Mono&display=swap" rel="stylesheet">
-
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Rubik | An efficient framework for Go"/>
-<meta name="twitter:description" content=""/>
-
-
-
-<meta property="og:title" content="Rubik | An efficient framework for Go" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/" />
-
-<meta property="og:updated_time" content="2020-06-02T00:00:00&#43;00:00"/><meta property="og:site_name" content="Rubik | An efficient framework for Go" />
-
-
-
-<link rel="alternate" type="application/rss+xml" href="/index.xml" title="Rubik | An efficient framework for Go" />
-
-
-
-  </head>
-  <body class="">
-    <div class="container">
-      <header class="header">
-  <span class="header__inner">
-    <a href="/guides/getting-started" class="logo" style="text-decoration: none;">
-  
-    <img src="/img/icon.png" alt="" />
-  
-</a>
-
-    <span class="header__right">
-      
-        <nav class="menu">
-  <ul class="menu__inner menu__inner--desktop">
-    
-      
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- THIS LINE IS USED TO CHANGE THE FONTS -->
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital,wght@0,400;0,700;1,400;1,700&family=Marck+Script&display=swap" rel="stylesheet">
+        <meta name="description" content="None">
         
-            <li><a href="/guides">Guides</a></li>
         
-      
-        
-            <li><a href="https://pkg.go.dev/github.com/rubikorg/rubik?tab=doc">API Docs</a></li>
-        
-      
-        
-            <li><a href="https://github.com/rubikorg/rubik">Source Code</a></li>
-        
-      
-      
-    
-  </ul>
+        <link rel="shortcut icon" href="img/icon.png">
+        <title>Introduction | Rubik</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
 
-  <ul class="menu__inner menu__inner--mobile">
-    
-      
-        <li><a href="/guides">Guides</a></li>
-      
-    
-      
-        <li><a href="https://pkg.go.dev/github.com/rubikorg/rubik?tab=doc">API Docs</a></li>
-      
-    
-      
-        <li><a href="https://github.com/rubikorg/rubik">Source Code</a></li>
-      
-    
-  </ul>
-</nav>
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/bash.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/js.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
 
-        <span class="menu-trigger">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
-        </span>
-      
-      
-    </span>
-  </span>
-</header>
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a href="."><span style="font-weight: bold; font-size: 18px;">Rubik</span></a><span style="padding-right: 1.5em;padding-left: 0.2em;">[alpha]</span>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon">
+                        <i class="fa fa-bars" style="font-size:28px;"></i>
+                    </span>
+                </button>
 
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem active">
+                                <a href="." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">APIs <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="essentials/apis/" class="dropdown-item">Core</a>
+</li>
+                                    
+<li>
+    <a href="essentials/blocks/" class="dropdown-item">Blocks</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="about/release-notes/" class="nav-link">Releases</a>
+                            </li>
+                        </ul>
 
-      <div class="content">
-        
-  <div class="posts">
-    
-    
-    
-
-    
-    <a style="text-decoration: none;" href="/guides/getting-started/">
-      <div class="post on-list">
-        <h1 class="post-title">Getting Started</h1>
-        <div class="post-meta">
-          <span class="post-date">
-            2020-06-02
-          </span>
-          <span class="post-author">— Written by Ashish Shekar</span>
-          
-            <span class="post-read-time">— 2 min read</span>
-          
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" class="nav-link disabled">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="essentials/apis/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://github.com/rubikorg/rubik" target="_blank" class="nav-link"><i class="fa fa-github"></i> 
+                                        <!-- GitHub --></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://www.youtube.com/channel/UC_qelGu_taTq8NSROkAPE9g" target="_blank" class="nav-link">
+                                    <i class="fa fa-youtube"></i> 
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
 
-        
-
-        
-
-        <div class="post-content">
-          
-            This guide will help you set-up your environment for Rubik Development and download <code>okrubik</code> CLI.
-          
-        </div>
-        <div><a class="read-more button" href="/guides/getting-started/">Read more →</a></div>
-      </div>
-    </a>
     
-    <a style="text-decoration: none;" href="/guides/create-project/">
-      <div class="post on-list">
-        <h1 class="post-title">Create a Rubik Project</h1>
-        <div class="post-meta">
-          <span class="post-date">
-            2020-06-01
-          </span>
-          <span class="post-author">— Written by Ashish Shekar</span>
-          
-            <span class="post-read-time">— 2 min read</span>
-          
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="0"><a href="#the-rubik-project" class="nav-link">The Rubik Project</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="0"><a href="#installation" class="nav-link">Installation</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="1"><a href="#create-project" class="nav-link">Create Project</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="1"><a href="#running-project" class="nav-link">Running Project</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="0"><a href="#framework-documentation" class="nav-link">Framework Documentation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="0"><a href="#disclaimer" class="nav-link">Disclaimer!</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="0"><a href="#however" class="nav-link">However...</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+                        
+
+<h2 id="the-rubik-project">The Rubik Project<a class="headerlink" href="#the-rubik-project" title="Permanent link"></a></h2>
+<p>Rubik is a efficient, scalable micro-framework for writing REST client and server-side applications. It provides a pluggable
+layer of abstraction over <code>net/http</code> and enables automation of development environment through extensive tooling.
+<br/>
+<br/>
+Rubik aims to deliver similar experience on projects of different scale and keep support of existing Go's <code>net/http</code> 
+interfaces for cross-compatibility.</p>
+<p>Demo: <a href="https://www.youtube.com/embed/bUx066QTwfE">https://www.youtube.com/embed/bUx066QTwfE</a>
+<br />
+<hr/></p>
+<h1 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link"></a></h1>
+<p>Rubik comes with it's own generator CLI called <code>okrubik</code>. Copy and paste the below command to install
+the CLI tool.</p>
+<p><span style="font-weight: bold">Shell</span>: <em>(Alpha)</em></p>
+<pre><code class="bash">curl https://rubik.ashishshekar.com/install | sh
+</code></pre>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>okrubik is not supported for Windows yet. Although you can download and build the CLI for your 
+platform from <a href="https://github.com/rubikorg/okrubik">this</a> repository. It is not tested with this
+release.</p>
+</div>
+<h3 id="create-project">Create Project<a class="headerlink" href="#create-project" title="Permanent link"></a></h3>
+<p>After your project is installed to the path you can easily create a Rubik project by running the
+<code>create</code> command:</p>
+<pre><code class="bash">okrubik create
+</code></pre>
+
+<p>You'll be presented with some questions before setting up your Rubik server. After you answer them
+a directory will be created with your project name.</p>
+<h3 id="running-project">Running Project<a class="headerlink" href="#running-project" title="Permanent link"></a></h3>
+<p>You can run the project by using the <code>run</code> command:</p>
+<pre><code class="bash">okrubik run
+</code></pre>
+
+<p>You will see a chooser to run which of the projects in your Rubik workspace. After you choose
+<em>server</em> you can see your Rubik server running at <em>PORT</em> you had entered. You'll see a page like so:</p>
+<p><img width="500" src="/img/new_project.png" /></p>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>Congratulations on your Rubik project setup! You will have all the resources at your disposal
+for quickly writing REST APIs in that page.</p>
+</div>
+<h1 id="framework-documentation">Framework Documentation<a class="headerlink" href="#framework-documentation" title="Permanent link"></a></h1>
+<p>The framework is new and needs many documentation that needs to be added. The current documentation of Rubik framework can be found <a href="https://pkg.go.dev/github.com/rubikorg/rubik?tab=doc">here</a>.</p>
+<h1 id="disclaimer">Disclaimer!<a class="headerlink" href="#disclaimer" title="Permanent link"></a></h1>
+<p>This project is still in <code>alpha</code> stage. Meaning, that it should not be used for writing complex and 
+information sensitive servers -- "yet". As this project is made support the needs of an upcoming product
+that is due to be launched this year, it'll receive huge updates and in-time it will become 
+<a href="">rock solid!</a></p>
+<h1 id="however">However...<a class="headerlink" href="#however" title="Permanent link"></a></h1>
+<p>This alpha release of Rubik can be used for quick prototying and proof-of-concept servers for your
+ideas.</p>
+
+                        ---<br/>
+                        Caught a mistake or want to contribute to the documentation? <a target="_blank" href="https://github.com/okrubik/okrubik.github.io">Edit on GitHub!</a>
+                    </div>
+                
+            </div>
+            
         </div>
 
+        <footer class="col-md-12">
+            <p class="mini-text">Copyright &copy; 2019-2020 Ashish Shekar <a href="https://github.com/rubikorg">@rubikorg</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"search": 83, "next": 78, "help": 191, "previous": 80};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
 
-        
-
-        
-
-        <div class="post-content">
-          
-            In this guide you&rsquo;ll learn how to set-up a Rubik project and run the server
-          
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
         </div>
-        <div><a class="read-more button" href="/guides/create-project/">Read more →</a></div>
-      </div>
-    </a>
-    
-    <a style="text-decoration: none;" href="/guides/todo-example/">
-      <div class="post on-list">
-        <h1 class="post-title">Write your first Rubik app</h1>
-        <div class="post-meta">
-          <span class="post-date">
-            2020-05-31
-          </span>
-          <span class="post-author">— Written by Ashish Shekar</span>
-          
-            <span class="post-read-time">— 5 min read</span>
-          
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
         </div>
-
-
-        
-
-        
-
-        <div class="post-content">
-          
-            In this guide you&rsquo;ll learn how to set-up a Rubik project and run the server
-          
-        </div>
-        <div><a class="read-more button" href="/guides/todo-example/">Read more →</a></div>
-      </div>
-    </a>
-    
-    <a style="text-decoration: none;" href="/guides/rubik-sources/">
-      <div class="post on-list">
-        <h1 class="post-title">Sources of Rubik</h1>
-        <div class="post-meta">
-          <span class="post-date">
-            2020-05-30
-          </span>
-          <span class="post-author">— Written by Ashish Shekar</span>
-          
-            <span class="post-read-time">— 1 min read</span>
-          
-        </div>
-
-
-        
-
-        
-
-        <div class="post-content">
-          
-            This collection will help you through the tough times of knowing and finding more resources about Rubik.
-          
-        </div>
-        <div><a class="read-more button" href="/guides/rubik-sources/">Read more →</a></div>
-      </div>
-    </a>
-    
-    <a style="text-decoration: none;" href="/guides/join-us/">
-      <div class="post on-list">
-        <h1 class="post-title">Joining the Team</h1>
-        <div class="post-meta">
-          <span class="post-date">
-            2020-05-29
-          </span>
-          <span class="post-author">— Written by Ashish Shekar</span>
-          
-            <span class="post-read-time">— 2 min read</span>
-          
-        </div>
-
-
-        
-
-        
-
-        <div class="post-content">
-          
-            Although this project has just started it has a long way to &lsquo;Go&rsquo; and lot&rsquo;s of interesting features to implement, we welcome each and everyone of you in this project.
-          
-        </div>
-        <div><a class="read-more button" href="/guides/join-us/">Read more →</a></div>
-      </div>
-    </a>
-    
-    <div class="pagination">
-  <div class="pagination__buttons">
-    
-    
-  </div>
+    </div>
 </div>
 
-  </div>
-
-      </div>
-
-      
-        <footer class="footer">
-  <div class="footer__inner">
-    
-    <div class="copyright copyright--user">
-      <span>Caught a mistake or want to contribute to the documentation? - <a target="_blank" href="https://github.com/rubikorg/rubikorg.github.io">Edit on GitHub!</a></span>
-      <span>© Ashish Shekar 2020</span>
-    </div>
-    
-  </div>
-</footer>
-
-<script src="/assets/main.js"></script>
-<script src="/assets/prism.js"></script>
-
-
-      
-    </div>
-
-    
-  </body>
+    </body>
 </html>
+
+<!--
+MkDocs version : 1.0.4
+Build Date UTC : 2020-07-04 09:51:49
+-->
