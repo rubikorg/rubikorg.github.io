@@ -73,7 +73,7 @@ a:hover {
 }
 
 p {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
   color: #444;
 }
@@ -135,6 +135,7 @@ h3,
 h4,
 h5 {
   color: #424242;
+  font-size: 26px;
   font-family: 'Barlow',sans-serif;
 }
 
@@ -249,9 +250,9 @@ footer {
   color: #25a6ab;
 }
 
-.nav .nav-item .nav-link {
+/* .nav .nav-item .nav-link {
   font-size: 16px;
-}
+} */
 
 .navbar-dark .navbar-nav .active > .nav-link,
 .navbar-dark .navbar-nav .active > .nav-link,
