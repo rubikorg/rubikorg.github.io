@@ -1,9 +1,9 @@
-# Build Rubik Docs
+# Rubik Docs
 
-This site uses [hugo](https://gohugo.io/) and modified hello-world theme.
+Uses awesome [mdbook](https://github.com/rust-lang/mdBook).
 
-## Running Docs
+### Running docs
 
 ```bash
-hugo server
+mdbook serve
 ```
