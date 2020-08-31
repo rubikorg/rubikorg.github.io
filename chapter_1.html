@@ -165,6 +165,65 @@ setup correctly. Let's go throught the requirements of Rubik first.</p>
 <pre><code class="language-bash"># this command outputs the version of Go runtime that you have installed
 go version
 </code></pre>
+<h2><a class="header" href="#installing-okrubik" id="installing-okrubik">Installing okrubik</a></h2>
+<p>Rubik CLI helps you in being productive and accomplish your tasks with ease. It has some really nice advantages over
+normal execution that is <a href="/blog/rubik-commands">discussed here</a>.</p>
+<p><span style="font-weight: bold">Shell</span>:</p>
+<pre><code class="language-bash">curl https://rubik.ashishshekar.com/install | sh
+</code></pre>
+<p>Thie CLI will be downloaded and installed under <code>$HOME/.rubik/bin</code> folder. You need to add this path to your
+<code>bash_profile</code> or it's equivalents:</p>
+<pre><code class="language-bash"># example
+nano ~/.bash_profile
+# add the below line to the end of the file
+export PATH=&quot;$HOME/.rubik/bin:$PATH&quot;
+</code></pre>
+<p>Now let's check if the installation was successful. Run:</p>
+<pre><code class="language-bash">okrubik
+
+# Welcome to Rubik Command-Line Manager use --help for help text
+</code></pre>
+<p>You have just set-up your development environment like a boss. You are ready to <code>Go!!</code>.</p>
+<h2><a class="header" href="#generating-a-new-rubik-project" id="generating-a-new-rubik-project">Generating a New Rubik Project</a></h2>
+<p>In this tutorial you'll learn how to setup your Rubik project using the command-line generator and how easy
+it is to setup a productive environment with Rubik.</p>
+<p>In the previous tutorial we installed <code>okrubik</code> a CLI for this framework, to ensure that it is installed run:</p>
+<pre><code class="language-bash">okrubik help
+</code></pre>
+<p>which outputs the following help text for all the commands available in Rubik.</p>
+<pre><code>Rubik is an efficient web framework for Go that encapsulates
+common tasks and functions and provides ease of REST API development.
+
+Complete documentation is available at https://rubikorg.github.io
+
+Usage:
+  okrubik [flags]
+  okrubik [command]
+
+Available Commands:
+  bundle      Create/Manage release bundle of your Rubik service
+  exec        Execute a rubik command defined inside rubik.toml under [x] object
+  gen         Generates project code for your Rubik server
+  help        Help about any command
+  new         Create a new Rubik project
+  run         Runs the app created under this workspace
+  upgrade     Upgrade the project dependencies or upgrade self
+
+Flags:
+  -h, --help   help for okrubik
+
+Use &quot;okrubik [command] --help&quot; for more information about a command.
+</code></pre>
+<pre><code class="language-bash">okrubik new helloworld
+</code></pre>
+<p>You'll have a new directory called <code>helloworld</code> now and will consists of Rubik project files.
+Let's run the server by running:</p>
+<pre><code class="language-bash">okrubik run -a server
+</code></pre>
+<p>The <code>-a</code> flag accepts a name of the application in our case, the default <code>server</code> as the argument. If you have multiple server projects under the same workspace you can do <code>okrubik run</code> which shows a dynamic CLI selection of the list of your Rubik servers which we will take a look at in this <a href="/chapter_4.html">chapter</a>.</p>
+<h3><a class="header" href="#viewing-server" id="viewing-server">Viewing server</a></h3>
+<p>Now let's visit <a href="http://localhost:7000">localhost:7000</a>. Wew! Our Rubik project is all set-up in just
+under a minute. This is a great start!</p>
 
                     </main>
 
