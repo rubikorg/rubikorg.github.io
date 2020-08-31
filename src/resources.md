@@ -10,4 +10,4 @@ Below are some list of resources to browse through or watch:
 | Video | First Rubik Demo _(gives you a general idea on the ethos of the framework)_ | [Link](https://youtu.be/bUx066QTwfE)                         |
 | Doc   | GoDoc of Rubik                                                              | [Link](https://pkg.go.dev/github.com/rubikorg/rubik?tab=doc) |
 
-You can also follow my [YouTube channel](https://www.youtube.com/channel/UC_qelGu_taTq8NSROkAPE9g) for more information on implementation of Rubik Framework to get a grasp on the topic.
+You can also follow my [YouTube channel](https://www.youtube.com/channel/UCLwgNn_4JnAG7UuO6klY2nQ) for upcoming content and implementation of Rubik Framework to get a grasp.
