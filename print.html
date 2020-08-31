@@ -91,7 +91,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="prologue.html">Prologue</a></li><li class="chapter-item expanded affix "><a href="resources.html">Resources</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">2.</strong> Compatibility with Go stdlib</a></li><li class="chapter-item expanded "><a href="chapter_4.html"><strong aria-hidden="true">3.</strong> Commanding your Workspace</a></li><li class="chapter-item expanded "><a href="chapter_5.html"><strong aria-hidden="true">4.</strong> Rubik Components</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="components/guards.html"><strong aria-hidden="true">4.1.</strong> Guards</a></li><li class="chapter-item expanded "><a href="components/assertions.html"><strong aria-hidden="true">4.2.</strong> Assertions</a></li><li class="chapter-item expanded "><a href="components/middlewares.html"><strong aria-hidden="true">4.3.</strong> Middlewares</a></li><li class="chapter-item expanded "><a href="components/entity.html"><strong aria-hidden="true">4.4.</strong> Entity</a></li><li class="chapter-item expanded "><a href="components/controllers.html"><strong aria-hidden="true">4.5.</strong> Controllers</a></li><li class="chapter-item expanded "><a href="lifecycle.html"><strong aria-hidden="true">4.6.</strong> Lifecycle of Rubik</a></li></ol></li><li class="chapter-item expanded "><a href="blocks.html"><strong aria-hidden="true">5.</strong> Blocks: Runtime Extensions</a></li><li class="chapter-item expanded "><a href="changelog.html"><strong aria-hidden="true">6.</strong> Changelog</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="prologue.html">Prologue</a></li><li class="chapter-item expanded affix "><a href="resources.html">Resources</a></li><li class="chapter-item expanded "><a href="chapter_1.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="chapter_3.html"><strong aria-hidden="true">2.</strong> Compatibility with Go stdlib</a></li><li class="chapter-item expanded "><a href="chapter_4.html"><strong aria-hidden="true">3.</strong> Commanding your Workspace</a></li><li class="chapter-item expanded "><a href="chapter_5.html"><strong aria-hidden="true">4.</strong> Rubik Components</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="components/guards.html"><strong aria-hidden="true">4.1.</strong> Guards</a></li><li class="chapter-item expanded "><a href="components/assertions.html"><strong aria-hidden="true">4.2.</strong> Assertions</a></li><li class="chapter-item expanded "><a href="components/middlewares.html"><strong aria-hidden="true">4.3.</strong> Middlewares</a></li><li class="chapter-item expanded "><a href="components/entity.html"><strong aria-hidden="true">4.4.</strong> Entity</a></li><li class="chapter-item expanded "><a href="components/controllers.html"><strong aria-hidden="true">4.5.</strong> Controllers</a></li><li class="chapter-item expanded "><a href="lifecycle.html"><strong aria-hidden="true">4.6.</strong> Lifecycle of Rubik</a></li></ol></li><li class="chapter-item expanded "><a href="blocks.html"><strong aria-hidden="true">5.</strong> Blocks: Runtime Extensions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="blocks/jwt.html"><strong aria-hidden="true">5.1.</strong> JWT Authentication Block</a></li><li class="chapter-item expanded "><a href="blocks/swagger.html"><strong aria-hidden="true">5.2.</strong> Swagger Block</a></li><li class="chapter-item expanded "><a href="blocks/httplogger.html"><strong aria-hidden="true">5.3.</strong> HTTP Logger Block</a></li></ol></li><li class="chapter-item expanded "><a href="changelog.html"><strong aria-hidden="true">6.</strong> Changelog</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -724,6 +724,92 @@ All The initialized Routes and their belongings such as <code>Entity</code>, <co
 RouteTree you can use <code>rubik.AttachAfter()</code> which attaches your Block after the boot sequence
 is complete</p>
 </blockquote>
+<h1><a class="header" href="#block---jwt-authentication" id="block---jwt-authentication">Block <code>-&gt;</code> JWT Authentication</a></h1>
+<p>This extension block for Rubik is used to easily authenticate <code>rubik.Request</code> containing <strong><a href="https://jwt.io/introduction/">Json Web Token</a></strong>.</p>
+<h2><a class="header" href="#usage" id="usage">Usage</a></h2>
+<p><code>import</code></p>
+<pre><code class="language-go">_ &quot;github.com/rubikorg/blocks/guard/jwt&quot;
+</code></pre>
+<h2><a class="header" href="#example" id="example">Example:</a></h2>
+<pre><code class="language-go">
+import (
+	r &quot;github.com/rubikorg/rubik&quot;
+	&quot;github.com/dgrijalva/jwt-go&quot; // used for coercing type
+	jwtBlock &quot;github.com/rubikorg/blocks/guard/jwt&quot;
+)
+
+var myRoute = r.Route{
+	Guards: []Controller{jwtBlock.HeaderJWTMiddleware},
+	Path: &quot;/getSomething&quot;,
+	Controller: myController,
+}
+
+func myController(req *r.Request) {
+	claims, _ := req.Claims.(jwt.MapClaims)
+}
+
+</code></pre>
+<h3><a class="header" href="#config-1" id="config-1">Config</a></h3>
+<pre><code class="language-toml">[jwt_auth]
+secret = &quot;my jwt secret&quot;
+cooke_http_only = false
+cooke_http_only_error &quot;your request requires it to come through HTTP&quot;
+cookie_key = &quot;tok&quot;
+unauth_error = &quot;this is acustom unauthorized error&quot;
+expiry_time = 3 # your token expires in 3 seconds
+expiry_key = &quot;exp&quot; # which claim field inside JWT has the expiry time
+</code></pre>
+<h3><a class="header" href="#create-token" id="create-token">Create Token</a></h3>
+<pre><code class="language-go">func CreateToken(claims jwt.MapClaims, expiry bool) (string, error)
+</code></pre>
+<p>Rubik comes with a pretty neat extension method to create a JWT token from the <code>jwt.MapClaims</code> that you provide, and errors when a signature could not be made from the secret provided in config.</p>
+<blockquote>
+<p><strong>Error Status</strong></p>
+<p><code>401</code> - The controllers return Unauthorized when token is present but is not a valid token</p>
+<p><code>403</code> - The controllers return Forbidden when there is no token for a JWT Block protected route</p>
+</blockquote>
+<p>There are 3 types of Controllers available in this block:</p>
+<h3><a class="header" href="#cookie-authentication-controller" id="cookie-authentication-controller">Cookie Authentication Controller</a></h3>
+<pre><code class="language-go">func CookieJWTMiddleware(req *rubik.Request)
+</code></pre>
+<p>This middleware controller can be used inside the rubik.Route to authenticate JWT with default key as 'token' and can override with <code>cookie_key</code> config so this block will look for overriden key, instead of default one</p>
+<h3><a class="header" href="#header-authentication-controller" id="header-authentication-controller">Header Authentication Controller</a></h3>
+<pre><code class="language-go">func HeaderJWTMiddleware(req *rubik.Request)
+</code></pre>
+<p>This middlware controller can be used in rubik.Route to authenticate JWT from the header. It follows the <code>Bearer</code> standard where you pass <code>Bearer $TOKEN</code> as the authorization header. It does not have any override from the config.</p>
+<h3><a class="header" href="#error-free-authentication-controller" id="error-free-authentication-controller">Error-Free Authentication Controller</a></h3>
+<pre><code class="language-go">func ParseClaimsMiddleware(req *rubik.Request)
+</code></pre>
+<p>This middleware can be used when there is no need to throw any error to the client but want to parse the jwt.MapClaims and be available inside the <code>rubik.Request.Claims</code>.</p>
+<h1><a class="header" href="#block---swagger" id="block---swagger">Block <code>-&gt;</code> Swagger</a></h1>
+<p>Swagger block let's you add documentation and to your Rubik REST APIs and serve as a tool for
+people to know and interact with your server.</p>
+<h2><a class="header" href="#usage-1" id="usage-1">Usage</a></h2>
+<p>Add this to <code>main.go</code> of your rubik server</p>
+<pre><code class="language-go">_ &quot;github.com/rubikorg/blocks/swagger&quot;
+</code></pre>
+<h2><a class="header" href="#steps" id="steps">Steps</a></h2>
+<ul>
+<li>Add Swagger Information about your server into <code>config/default.toml</code> file:</li>
+</ul>
+<pre><code class="language-toml">[swagger]
+title = &quot;my rubik server&quot;
+description = &quot;this is my awesome rubik server&quot;
+version = &quot;1.0.1&quot;
+termsOfService = &quot;http://www.apache.org/licenses/LICENSE-2.0.html&quot;
+</code></pre>
+<ul>
+<li>Go to <code>SERVER_URL/rubik/docs</code> - replace SERVER_URL with your rubik server Base URL.</li>
+</ul>
+<h1><a class="header" href="#block---http-logger" id="block---http-logger">Block <code>-&gt;</code> HTTP Logger</a></h1>
+<p>HTTP Logger block logs the request and response details with result status code.</p>
+<h2><a class="header" href="#usage-2" id="usage-2">Usage</a></h2>
+<ul>
+<li>Add this import to your <code>main.go</code> file</li>
+</ul>
+<pre><code class="language-go">_ &quot;github.com/rubikorg/blocks/logger&quot;
+</code></pre>
+<p>Simple, right?</p>
 <h1><a class="header" href="#changelog" id="changelog">Changelog</a></h1>
 <h2><a class="header" href="#v026" id="v026">v0.2.6</a></h2>
 <ul>

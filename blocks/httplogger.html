@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Controllers - The Rubik Project</title>
+        <title>HTTP Logger Block - The Rubik Project</title>
         
         
 
@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prologue.html">Prologue</a></li><li class="chapter-item expanded affix "><a href="../resources.html">Resources</a></li><li class="chapter-item expanded "><a href="../chapter_1.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="../chapter_3.html"><strong aria-hidden="true">2.</strong> Compatibility with Go stdlib</a></li><li class="chapter-item expanded "><a href="../chapter_4.html"><strong aria-hidden="true">3.</strong> Commanding your Workspace</a></li><li class="chapter-item expanded "><a href="../chapter_5.html"><strong aria-hidden="true">4.</strong> Rubik Components</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../components/guards.html"><strong aria-hidden="true">4.1.</strong> Guards</a></li><li class="chapter-item expanded "><a href="../components/assertions.html"><strong aria-hidden="true">4.2.</strong> Assertions</a></li><li class="chapter-item expanded "><a href="../components/middlewares.html"><strong aria-hidden="true">4.3.</strong> Middlewares</a></li><li class="chapter-item expanded "><a href="../components/entity.html"><strong aria-hidden="true">4.4.</strong> Entity</a></li><li class="chapter-item expanded "><a href="../components/controllers.html" class="active"><strong aria-hidden="true">4.5.</strong> Controllers</a></li><li class="chapter-item expanded "><a href="../lifecycle.html"><strong aria-hidden="true">4.6.</strong> Lifecycle of Rubik</a></li></ol></li><li class="chapter-item expanded "><a href="../blocks.html"><strong aria-hidden="true">5.</strong> Blocks: Runtime Extensions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../blocks/jwt.html"><strong aria-hidden="true">5.1.</strong> JWT Authentication Block</a></li><li class="chapter-item expanded "><a href="../blocks/swagger.html"><strong aria-hidden="true">5.2.</strong> Swagger Block</a></li><li class="chapter-item expanded "><a href="../blocks/httplogger.html"><strong aria-hidden="true">5.3.</strong> HTTP Logger Block</a></li></ol></li><li class="chapter-item expanded "><a href="../changelog.html"><strong aria-hidden="true">6.</strong> Changelog</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../prologue.html">Prologue</a></li><li class="chapter-item expanded affix "><a href="../resources.html">Resources</a></li><li class="chapter-item expanded "><a href="../chapter_1.html"><strong aria-hidden="true">1.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="../chapter_3.html"><strong aria-hidden="true">2.</strong> Compatibility with Go stdlib</a></li><li class="chapter-item expanded "><a href="../chapter_4.html"><strong aria-hidden="true">3.</strong> Commanding your Workspace</a></li><li class="chapter-item expanded "><a href="../chapter_5.html"><strong aria-hidden="true">4.</strong> Rubik Components</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../components/guards.html"><strong aria-hidden="true">4.1.</strong> Guards</a></li><li class="chapter-item expanded "><a href="../components/assertions.html"><strong aria-hidden="true">4.2.</strong> Assertions</a></li><li class="chapter-item expanded "><a href="../components/middlewares.html"><strong aria-hidden="true">4.3.</strong> Middlewares</a></li><li class="chapter-item expanded "><a href="../components/entity.html"><strong aria-hidden="true">4.4.</strong> Entity</a></li><li class="chapter-item expanded "><a href="../components/controllers.html"><strong aria-hidden="true">4.5.</strong> Controllers</a></li><li class="chapter-item expanded "><a href="../lifecycle.html"><strong aria-hidden="true">4.6.</strong> Lifecycle of Rubik</a></li></ol></li><li class="chapter-item expanded "><a href="../blocks.html"><strong aria-hidden="true">5.</strong> Blocks: Runtime Extensions</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../blocks/jwt.html"><strong aria-hidden="true">5.1.</strong> JWT Authentication Block</a></li><li class="chapter-item expanded "><a href="../blocks/swagger.html"><strong aria-hidden="true">5.2.</strong> Swagger Block</a></li><li class="chapter-item expanded "><a href="../blocks/httplogger.html" class="active"><strong aria-hidden="true">5.3.</strong> HTTP Logger Block</a></li></ol></li><li class="chapter-item expanded "><a href="../changelog.html"><strong aria-hidden="true">6.</strong> Changelog</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -155,20 +155,28 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1><a class="header" href="#controllers" id="controllers">Controllers</a></h1>
+                        <h1><a class="header" href="#block---http-logger" id="block---http-logger">Block <code>-&gt;</code> HTTP Logger</a></h1>
+<p>HTTP Logger block logs the request and response details with result status code.</p>
+<h2><a class="header" href="#usage" id="usage">Usage</a></h2>
+<ul>
+<li>Add this import to your <code>main.go</code> file</li>
+</ul>
+<pre><code class="language-go">_ &quot;github.com/rubikorg/blocks/logger&quot;
+</code></pre>
+<p>Simple, right?</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
                         
-                            <a rel="prev" href="../components/entity.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../blocks/swagger.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
 
                         
-                            <a rel="next" href="../lifecycle.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next" href="../changelog.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -180,13 +188,13 @@
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
                 
-                    <a rel="prev" href="../components/entity.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../blocks/swagger.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
 
                 
-                    <a rel="next" href="../lifecycle.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next" href="../changelog.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                 
